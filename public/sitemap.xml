@@ -2,10 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://example.org/categories/</loc>
+    <loc>https://gatieme.gitee.io/openeuler_kernel_sig_site/categories/</loc>
+    <lastmod>2021-03-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://example.org/</loc>
+    <loc>https://gatieme.gitee.io/openeuler_kernel_sig_site/categories/document/</loc>
+    <lastmod>2021-03-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://example.org/tags/</loc>
+    <loc>https://gatieme.gitee.io/openeuler_kernel_sig_site/tags/openeuler/</loc>
+    <lastmod>2021-03-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://gatieme.gitee.io/openeuler_kernel_sig_site/</loc>
+    <lastmod>2021-03-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://gatieme.gitee.io/openeuler_kernel_sig_site/tags/patch/</loc>
+    <lastmod>2021-03-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://gatieme.gitee.io/openeuler_kernel_sig_site/post/</loc>
+    <lastmod>2021-03-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://gatieme.gitee.io/openeuler_kernel_sig_site/tags/</loc>
+    <lastmod>2021-03-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://gatieme.gitee.io/openeuler_kernel_sig_site/post/2021/0304-0001-contributions_to_openeuler_kernel_project/</loc>
+    <lastmod>2021-03-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://gatieme.gitee.io/openeuler_kernel_sig_site/post/2021/0301-0001-openeuler_patch_format_specification/</loc>
+    <lastmod>2021-03-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://gatieme.gitee.io/openeuler_kernel_sig_site/about/</loc>
+    <lastmod>2021-03-01T00:00:00+00:00</lastmod>
   </url>
 </urlset>

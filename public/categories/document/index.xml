@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>openEuler Kernel SIG</title>
-    <link>https://gatieme.gitee.io/openeuler_kernel_sig_site/</link>
-    <description>Recent content on openEuler Kernel SIG</description>
+    <title>Document on openEuler Kernel SIG</title>
+    <link>https://gatieme.gitee.io/openeuler_kernel_sig_site/categories/document/</link>
+    <description>Recent content in Document on openEuler Kernel SIG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 04 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://gatieme.gitee.io/openeuler_kernel_sig_site/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 04 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://gatieme.gitee.io/openeuler_kernel_sig_site/categories/document/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>如何参与 openEuler linux 内核开发</title>
       <link>https://gatieme.gitee.io/openeuler_kernel_sig_site/post/2021/0304-0001-contributions_to_openeuler_kernel_project/</link>
@@ -23,15 +23,6 @@
       
       <guid>https://gatieme.gitee.io/openeuler_kernel_sig_site/post/2021/0301-0001-openeuler_patch_format_specification/</guid>
       <description>阅读本规范之前，请先了解 openEuler 内核的分支管理。 当前版本 v1.0 @ 2021-03-01 更新日期 更新日志 2021/02/26 谢秀奇 完成 v0.9 版本 2021/03/03 成坚 完成 v1 版本 1 目的 为规范和统一 openEuler 内核补丁的提交流程、方式、格式，方便对补丁/特性的分类、识别、统计、追溯以及移植，特制定openEuler kernel 补丁合入规范（以下简称“本规范”）。 2 适用范围 本规范适用</description>
-    </item>
-    
-    <item>
-      <title>关于 openEuler Kernel SIG</title>
-      <link>https://gatieme.gitee.io/openeuler_kernel_sig_site/about/</link>
-      <pubDate>Mon, 01 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://gatieme.gitee.io/openeuler_kernel_sig_site/about/</guid>
-      <description>openEuler Kernel 是目前国内最具活力的的内核社区, 自发布以来一直保持着比较高的热度, 对外面内核开发者更是极度欢迎. 通过参与 openEuler Kernel 社区可以跟内核大牛讨论技术, 解决问题, 畅所欲言. 很多小伙伴都有想法, 但是之前一直不知道怎么入手, 本文就作为 openEuler Kernel SIG 的开篇之作, 旨在为大家提供一个参与 openEuler Kernel 开发的最基础的指导. 1 openEuler Kernel SIG</description>
     </item>
     
   </channel>

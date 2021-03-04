@@ -1,4 +1,104 @@
-baseURL = "http://example.org/"
-languageCode = "en-us"
+baseURL = "https://gatieme.gitee.io/openeuler_kernel_sig_site/"
+
 title = "openEuler Kernel SIG"
+
+LanguageCode = "zh-cn"
+defaultContentLanguage = "zh-cn"
+hasCJKLanguage = true
 theme = "mainroad"
+summaryLength = "145"
+
+[Params]
+  description = "最具活力的 Linux 内核开发社区"
+  subtitle = "最具活力的 Linux 内核开发社区"
+  keywords = "linux,kernel,performance,scheduler,memory,fs,net"
+  readmore = true
+  #dateformat = "2021-03-04"
+  post_navigation = true
+  post_related = true
+  share_open = true
+  baidu_push = true
+  baidu_count_id = "1f38fa809"
+  isso_open = true
+  friend_link_open = true
+  toc = true
+  share_top_show = true
+
+  opengraph = true # Enable OpenGraph if true
+  schema = true # Enable Schema
+  twitter_cards = true # Enable Twitter Cards if true
+  pager = true # Show pager navigation (prev/next links) at the bottom of pages if true
+  mathjax = true # Enable MathJax
+  mathjaxPath = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js" # Specify MathJax path
+  mathjaxConfig = "TeX-AMS-MML_HTMLorMML" # Specify MathJax config
+  googleFontsLink = "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" # Load Google Fonts
+  highlightColor = "" # Deprecated in favor of .Site.Params.style.vars.highlightColor
+  customCSS = ["css/custom.css"] # Include custom CSS files
+  customJS = ["js/custom.js"] # Include custom JS files
+
+[Author] # Used in authorbox
+  name = "openEuler Kernel SIG"
+  bio = "最具活力的 Linux 内核开发社区"
+  avatar = "img/avatar.png"
+
+[[Params.friendlink]]
+  link = "https://openeuler.org"
+  title = "openEuler 社区"
+  desc = "最具活力的开源操作系统社区"
+
+[[Params.friendlink]]
+  link = "https://kernel.blog.csdn.net"
+  title = "OS 内核实验室"
+  desc = "一个专注于容器技术的博客"
+
+[Params.isso]
+  prefix = "isso"
+
+[Params.sidebar]
+  home = "right"
+  list = "right"
+  single = "right"
+  widgets = ["search", "languages", "recent", "categories", "taglist", "social", "friendlink"]
+
+[Params.widgets]
+  recent_num = 10
+  tags_counter = true
+
+[menu]
+[[menu.main]]
+  identifier = "post"
+    name = "博客"
+    title = "技术博客文章"
+    url = "/post/"
+
+[[menu.main]]
+  identifier = "timeline"
+    name = "动态"
+    title = "社区动态"
+    url = "/timeline/"
+
+[[menu.main]]
+  identifier = "about"
+    name = "关于"
+    title = "关于 openEuler Kernel SIG 的详细信息"
+    url = "/about/"
+
+[Params.widgets.social]
+  gitee = "openeuler"
+  email = "kernel@openeuler.org"
+
+[related]
+   threshold = 80
+   includeNewer = true
+   toLower = true
+   [[related.indices]]
+     name = "tags"
+     weight = 100
+
+[Params.style.vars]
+  highlightColor = "#e22d30" # Override highlight color
+
+  # Override font-family sets. Secondary font-family set responsible for pre, code, kbd, and samp tags font
+  # Take care of different quotes OR escaping symbols in these params if necessary
+  fontFamilyPrimary = "'Open Sans', Helvetica, Arial, sans-serif"
+  fontFamilySecondary = "SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace"
