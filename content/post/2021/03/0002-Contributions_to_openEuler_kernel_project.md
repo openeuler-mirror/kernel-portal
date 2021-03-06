@@ -441,7 +441,7 @@ openEuler 的愿景是：走进千行百业，千家万户。
 
 | 微信群 | 管理员 |
 |:-----:|:-----:|
-| ![openEuler Kernel SIG 技术交流群](https://raw.githubusercontent.com/gatieme/LDD-LinuxDeviceDrivers/master/openEuler/wechat/openEuler_kernel_SIG_wechat_TMP.png) | ![openEuler-成坚](https://raw.githubusercontent.com/gatieme/LDD-LinuxDeviceDrivers/master/openEuler/wechat/openEuler_gatieme_wechat.png) |
+| ![openEuler Kernel SIG 技术交流群](/openeuler_kernel_sig_site/img/wechat/openEuler_kernel_SIG_wechat_TMP.png) | ![openEuler-成坚](/openeuler_kernel_sig_site/img/wechat/openEuler_gatieme_wechat.png) |
 
 > 或搜索添加如下任何一个微信号可以进入 kernel SIG 微信群：
 >  群主: rousya
