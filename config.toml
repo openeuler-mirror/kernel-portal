@@ -47,10 +47,6 @@ summaryLength = "145"
   desc = "最具活力的开源操作系统社区"
 
 [[Params.friendlink]]
-  link = "https://openeuler.org"
-  title = "openEuler 社区"
-
-[[Params.friendlink]]
   link = "https://openeuler.org/zh/interaction/blog-list"
   title = "openEuler 社区博客页面"
 
