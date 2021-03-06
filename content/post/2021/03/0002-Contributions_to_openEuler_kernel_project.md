@@ -71,11 +71,12 @@ git clone git@gitee.com:openeuler/kernel.git
 **强烈建议使用 ssh 协议**, 由于 kernel 仓库较大, 使用 https 协议下载, 可能会下载失败, 特别是当你辛辛苦苦下载一半然后失败的时候, 那种感觉....
 
 
-![clone 内核源代码](0001-clone_kernel.png)
+![clone 内核源代码](/openeuler_kernel_sig_site/img/2021/03/0002-0001-clone_kernel.png)
+
 
 默认会把仓库下载到和仓库同名的目录下.
 
-![内核目录](0002-cloned_kernel.png)
+![内核目录](/openeuler_kernel_sig_site/img/2021/03/0002-0002-cloned_kernel.png)
 
 
 ## 1.2 git 配置
@@ -91,7 +92,7 @@ git config --global user.email "zhangsan@163.com"
 
 这些信息都将作为以后你提交补丁的 "身份戳".
 
-![Signed-off-by](0003-SIGned_off_by.png)
+![Signed-off-by](/openeuler_kernel_sig_site/img/2021/03/0002-0003-signed_off_by.png)
 
 待你提交补丁合入后, 你的大名将显示在 git 的 log 中.
 
@@ -174,7 +175,7 @@ sudo yum install git-email
 git send-email -to zhangsan@163.com ./xxxx.patch
 ```
 
-![发送邮件测试](0004-send_email_test.png)
+![发送邮件测试](/openeuler_kernel_sig_site/img/2021/03/0002-0004-send_email_test.png)
 
 
 
@@ -194,7 +195,7 @@ git send-email -to zhangsan@163.com ./xxxx.patch
 ### 2.2.1 补丁基本格式
 -------
 
-![补丁的基本格式](0005-patch_format.png)
+![补丁的基本格式](/openeuler_kernel_sig_site/img/2021/03/0002-0005-patch_format.png)
 
 commit 信息如下图所示，包括下面4部分内容 :
 
@@ -293,7 +294,7 @@ openEuler 的补丁格式沿用了社区的格式, 但是为了 openEuler Kernel
 git format-patch -s -1 9ced0cc25946
 ```
 
-![生成 PATCH](0006-format_patch.png)
+![生成 PATCH](/openeuler_kernel_sig_site/img/2021/03/0002-0006-format_patch.png)
 
 
 *	如何生成补丁集
@@ -306,7 +307,7 @@ git format-patch -s --cover-letter --subject-prefix "PATCH v3 openEuler-1.0-LTS"
 ```
 
 
-![cover-letter](0007-format_patchset.png)
+![cover-letter](/openeuler_kernel_sig_site/img/2021/03/0002-0007-format_patchset.png)
 
 
 上面的命令, 将当前 HEAD 位置开始, 往前的 10 个补丁生成 PATCH 文件, 并输出到当前目录 mpam/20210301/v1 路径下, 补丁的标题前缀 "PATCH v3 openEuler-1.0-LTS", 表示这个补丁是为 openEuler-20.03-LTS 提供的, 并且已经是第 3 个版本.
@@ -323,7 +324,7 @@ git format-patch -s --cover-letter --subject-prefix "PATCH v3 openEuler-1.0-LTS"
 > 注意 将 `***` 一起替换掉, 要不然你的标题叫 `*** fix XXXXXX ***` 也是蛮奇怪的.
 这个封面补丁只是作者呈现补丁集用的, 方便大家对整个补丁集有一个直观上的认识. 在 apply 之后这个补丁并不会出现在 git log 中.
 
-![cover-letter](0008-cover_letter.png)
+![cover-letter](/openeuler_kernel_sig_site/img/2021/03/0002-0008-cover_letter.png)
 
 
 > 注意我们可以指定 commitid 为 patchset 的结束位置
@@ -393,7 +394,7 @@ https://gitee.com/openeuler/kernel/issues
 
 我们可以向 openEuler linux内核提一个issue, 如下图所示.
 
-![提交 issue](0009-create_issue.png)
+![提交 issue](/openeuler_kernel_sig_site/img/2021/03/0002-0009-create_issue.png)
 
 
 **温馨提示**
