@@ -72,10 +72,10 @@ summaryLength = "145"
     url = "/post/"
 
 [[menu.main]]
-  identifier = "timeline"
-    name = "动态"
-    title = "社区动态"
-    url = "/timeline/"
+  identifier = "archives"
+    name = "归档"
+    title = "历史归档页面"
+    url = "/archives/"
 
 [[menu.main]]
   identifier = "about"
