@@ -25,6 +25,7 @@ widgets: # Enable sidebar widgets in given order per page
   - "search"
   - "recent"
   - "taglist"
+
 ---
 
 
@@ -40,13 +41,12 @@ widgets: # Enable sidebar widgets in given order per page
 | v1.1 | 2021/03/01 | 谢秀奇 | 对部门内容做了修正, 内容更精简 |
 
 
-# 1 目的
+## 1 目的
 -------
 
 为规范和统一 openEuler 内核补丁的提交流程、方式、格式，方便对补丁/特性的分类、识别、统计、追溯以及移植，特制定openEuler kernel 补丁合入规范（以下简称“本规范”）。
 
-# 2 适用范围
-
+## 2 适用范围
 -------
 
 
@@ -58,8 +58,7 @@ widgets: # Enable sidebar widgets in given order per page
 
 * openEuler kernel 5.10 内核开发；
 
-# 3  对补丁的基本要求
-
+## 3  对补丁的基本要求
 -------
 
 openEuler 的目标是：
@@ -70,11 +69,13 @@ openEuler 的目标是：
 
 因此，满足这个原则的补丁或特性都可以提交给 openEuler 内核。
 
-## 3.1 贡献openEuler社区之前需要签署贡献者协议 （CLA)
+### 3.1 贡献openEuler社区之前需要签署贡献者协议 （CLA)
+-------
 
 https://openeuler.org/zh/community/contribution/
 
-## 3.2 补丁格式要求
+### 3.2 补丁格式要求
+-------
 
 【原则】
 
@@ -216,8 +217,7 @@ Sign your work - the Developer’s Certificate of Origin
 
     ```backport: openEuler-20.03-LTS-SP1, openEuler-20.03-LTS-SP2```
 
-## 3.3 补丁的维护与生命周期
-
+### 3.3 补丁的维护与生命周期
 -------
 
 1. 少数遇到以下情况，已经合入openEuler 内核的补丁或特性可能会被回退或删除：
@@ -233,8 +233,7 @@ Sign your work - the Developer’s Certificate of Origin
 3. LTS 维护分支 （openEuler-xx.xx)，通常不直接接受补丁，只从开发主干（OLK-X.XX)回合的补丁。
 4. 补丁只合入了创新版本，不一定能进入 LTS 版本和主干。并且，如果补丁要合入主干和LTS分支，需要重新适配发送补丁。
 
-# 4 流程要求
-
+## 4 流程要求
 -------
 
 1.  新特性、新驱动、补丁集回合等，需要现在 [bugzilla](https://bugzilla.openeuler.org/enter_bug.cgi) 上提交 request，对特性及改动做简单的介绍。
