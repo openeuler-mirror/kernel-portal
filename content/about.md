@@ -53,10 +53,3 @@ openEuler 的愿景是：走进千行百业，千家万户。
 > 建群不易, 请不要在群里涉及敏感话题, 不胜感激
 >
 > 有疑问或问题可以发邮件列表，或联系 [Xie XiuQi](https://gitee.com/xiexiuqi) 或 [CHENG Jian](https://www.github.com/gatieme).
-
-
-# 3 openEuler Kernel 开发指导手册
--------
-
-
-[](https://openeuler.org/zh/docs/20.03_LTS_SP1/docs/Kernel/%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E5%8C%96.html)
