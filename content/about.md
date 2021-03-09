@@ -39,7 +39,7 @@ openEuler 的愿景是：走进千行百业，千家万户。
 
 | 微信群 | 管理员 |
 |:-----:|:-----:|
-| ![openEuler Kernel SIG 技术交流群](/openeuler_kernel_sig_site/img/wechat/openEuler_kernel_SIG_wechat_TMP.png) | ![openEuler-成坚](/openeuler_kernel_sig_site/img/wechat/openEuler_gatieme_wechat.png) |
+| ![openEuler Kernel SIG 技术交流群](/kernel-portal/img/wechat/openEuler_kernel_SIG_wechat_TMP.png) | ![openEuler-成坚](/kernel-portal/img/wechat/openEuler_gatieme_wechat.png) |
 
 大家加入 openEuler KerneL SIG 交流群之后，建议大家修改群备注为 所在公司 or 学校-昵称/真实姓名-研究反向/感兴趣方向。
 由于公司以及真实姓名涉及隐私信息，因此不强制要求备注。
