@@ -50,11 +50,6 @@ summaryLength = "145"
   link = "https://openeuler.org/zh/interaction/blog-list"
   title = "openEuler 社区博客页面"
 
-[[Params.friendlink]]
-  link = "https://kernel.blog.csdn.net"
-  title = "某某人的博客页面"
-  desc = "一个专注于 Linux 内核等技术的博客"
-
 [Params.isso]
   prefix = "isso"
 
