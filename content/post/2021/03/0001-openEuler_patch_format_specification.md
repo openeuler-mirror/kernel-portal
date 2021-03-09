@@ -4,9 +4,9 @@ title: openEuler kernel 补丁合入规范
 date: "2021-03-01"
 author: openEuler kernel SIG
 thumbnail:
-blogexcerpt: openEuler kernel 是目前国内最具活力的的内核社区，自发布以来一直保持着比较高的热度. openEuler kernel 为了内核版本质量，在尽可能方便大家参与社区的前提下，加强了对合入补丁的管控，保证补丁安全、可信、可追溯，因此对 openEuler Kernel 合入补丁的方式和格式都做了一些约束和建议，本规范旨在为大家合入补丁提供必要的指导。
-
-description: "openEuler kernel 是目前国内最具活力的的内核社区，自发布以来一直保持着比较高的热度. openEuler kernel 为了内核版本质量，在尽可能方便大家参与社区的前提下，加强了对合入补丁的管控，保证补丁安全、可信、可追溯，因此对 openEuler Kernel 合入补丁的方式和格式都做了一些约束和建议，本规范旨在为大家合入补丁提供必要的指导。"
+blogexcerpt:
+description:
+summary: "openEuler kernel 为了内核版本质量，在尽可能方便大家参与社区的前提下，加强了对合入补丁的管控，保证补丁安全、可信、可追溯，因此对 openEuler Kernel 合入补丁的方式和格式都做了一些约束和建议，本规范旨在为大家合入补丁提供必要的指导。"
 categories:
   - "开发指南"
 tags:
@@ -120,7 +120,7 @@ https://openeuler.org/zh/community/contribution/
 
 规则4: 补丁应有分类标识，一般分为 bugfix，performance，feature，doc.
 
-规则5：如果补丁来说上游主线社区，需要指定来自主线哪个版本，如 
+规则5：如果补丁来说上游主线社区，需要指定来自主线哪个版本，如
 
 ```from mainline-5.11```
 

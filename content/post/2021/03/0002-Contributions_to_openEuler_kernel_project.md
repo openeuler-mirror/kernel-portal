@@ -3,10 +3,9 @@
 title: 如何参与 openEuler linux 内核开发
 date: "2021-03-04"
 author: openEuler Kernel SIG
-categories:
-        - Kernel
 thumbnail:
-blogexcerpt: openEuler Kernel 是目前国内最具活力的的内核社区, 自发布以来一直保持着比较高的热度, 对外面内核开发者更是极度欢迎. 通过参与 openEuler Kernel 社区可以跟内核大牛讨论技术, 解决问题, 畅所欲言. 很多小伙伴都有想法, 但是之前一直不知道怎么入手, 本文就作为 openEuler Kernel SIG 的开篇之作, 旨在为大家提供一个参与 openEuler Kernel 开发的最基础的指导.
+blogexcerpt:
+summary: "通过参与 openEuler Kernel 社区可以跟内核大牛讨论技术, 解决问题, 畅所欲言. 很多小伙伴都有想法, 但是之前一直不知道怎么入手, 本文就作为 openEuler Kernel SIG 的开篇之作, 旨在为大家提供一个参与 openEuler Kernel 开发的最基础的指导."
 categories:
   - "开发指南"
 tags:
