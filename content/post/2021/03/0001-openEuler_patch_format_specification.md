@@ -8,10 +8,10 @@ blogexcerpt: openEuler kernel 是目前国内最具活力的的内核社区，�
 
 description: "openEuler kernel 是目前国内最具活力的的内核社区，自发布以来一直保持着比较高的热度. openEuler kernel 为了内核版本质量，在尽可能方便大家参与社区的前提下，加强了对合入补丁的管控，保证补丁安全、可信、可追溯，因此对 openEuler Kernel 合入补丁的方式和格式都做了一些约束和建议，本规范旨在为大家合入补丁提供必要的指导。"
 categories:
-  - "Document"
+  - "开发指南"
 tags:
   - "openEuler"
-  - "patch"
+  - "Document"
 
 # thumbnail: "img/placeholder.jpg" # Thumbnail image
 # lead: "Example lead - highlighted near the title" # Lead text
