@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on openEuler Kernel SIG</title>
-    <link>https://gatieme.gitee.io/openeuler_kernel_sig_site/categories/</link>
+    <link>https://gatieme.gitee.io/kernel-portal/categories/</link>
     <description>Recent content in Categories on openEuler Kernel SIG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 04 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://gatieme.gitee.io/openeuler_kernel_sig_site/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 04 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://gatieme.gitee.io/kernel-portal/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Document</title>
-      <link>https://gatieme.gitee.io/openeuler_kernel_sig_site/categories/document/</link>
+      <link>https://gatieme.gitee.io/kernel-portal/categories/document/</link>
       <pubDate>Thu, 04 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://gatieme.gitee.io/openeuler_kernel_sig_site/categories/document/</guid>
+      <guid>https://gatieme.gitee.io/kernel-portal/categories/document/</guid>
       <description></description>
     </item>
     
