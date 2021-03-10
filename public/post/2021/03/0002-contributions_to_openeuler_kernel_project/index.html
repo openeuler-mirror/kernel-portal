@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>如何参与 openEuler linux 内核开发 - openEuler Kernel SIG</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<script type="text/javascript" src="/kernel-portal/js/jquery.min.js"></script>
+	
+	<meta name="description" content="">
+	<meta name="generator" content="Hugo 0.81.0" />
+	<meta property="og:title" content="如何参与 openEuler linux 内核开发" />
+<meta property="og:description" content="通过参与 openEuler Kernel 社区可以跟内核大牛讨论技术, 解决问题, 畅所欲言. 很多小伙伴都有想法, 但是之前一直不知道怎么入手, 本文就作为 openEuler Kernel SIG 的开篇之作, 旨在为大家提供一个参与 openEuler Kernel 开发的最基础的指导." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://openeuler.gitee.io/kernel-portal/post/2021/03/0002-contributions_to_openeuler_kernel_project/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-03-04T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-03-04T00:00:00&#43;00:00" />
+
+
+	<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="如何参与 openEuler linux 内核开发"/>
+<meta name="twitter:description" content="通过参与 openEuler Kernel 社区可以跟内核大牛讨论技术, 解决问题, 畅所欲言. 很多小伙伴都有想法, 但是之前一直不知道怎么入手, 本文就作为 openEuler Kernel SIG 的开篇之作, 旨在为大家提供一个参与 openEuler Kernel 开发的最基础的指导."/>
+
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="/kernel-portal/css/style.css">	
+	<link rel="stylesheet" type="text/css" href="/kernel-portal/css/highlight.css">
+	
+	
+	<link rel="stylesheet" href="/kernel-portal/css/share.min.css">
+  <script src="/kernel-portal/js/social-share.min.js"></script>
+  <script src="/kernel-portal/js/qrcode.js"></script>
+	
+	<link rel="stylesheet" href="/kernel-portal/css/custom.css">
+	<link rel="shortcut icon" href="/kernel-portal/favicon.ico">
+		
+	
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container">
+		<div class="logo">
+			<a class="logo__link" href="/kernel-portal/" title="openEuler Kernel SIG" rel="home">
+			<div class="logo__title">openEuler Kernel SIG</div>			
+				<div class="logo__tagline">最具活力的 Linux 内核开发社区</div> 
+			</a>
+			
+			<div class="float_right"><div class="social-share"></div>
+  <br/></div>
+			
+		</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">选择</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/kernel-portal/about/">关于</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/kernel-portal/post/">博客</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/kernel-portal/archives/">归档</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+  
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</header>
+
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">如何参与 openEuler linux 内核开发</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
+	<time class="meta__text" datetime="2021-03-04T00:00:00">March 04, 2021</time>
+</div>
+
+<div class="meta__item-categories meta__item">
+	<svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta__text"><a class="meta__link" href="/kernel-portal/categories/%e5%bc%80%e5%8f%91%e6%8c%87%e5%8d%97" rel="category">开发指南</a></span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
+	<time class="meta__text">9 分钟</time>
+</div></div>
+		</header>
+
+    <h5 id="wc" style="font-size: 1rem;text-align: center;">4500 Words|Read in about 9 Min|本文总阅读量<span id="busuanzi_value_page_pv"></span>次</h5>
+  
+    <div class="toc">
+        <div class="toc__title"><span id="toc_menu_tip">展开书签</span></div>
+        <div class="toc__menu">
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-环境准备与配置">1 环境准备与配置</a>
+      <ul>
+        <li><a href="#11-下载-openeuler-linux-内核代码">1.1 下载 openEuler linux 内核代码</a></li>
+        <li><a href="#12-git-配置">1.2 git 配置</a></li>
+        <li><a href="#13-配置-git-邮箱服务器">1.3 配置 git 邮箱服务器</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-补丁制作与提交">2 补丁制作与提交</a>
+      <ul>
+        <li><a href="#21-修改内核代码解决bug并提交">2.1 修改内核代码解决bug并提交</a></li>
+        <li><a href="#22-补丁描述">2.2 补丁描述</a></li>
+        <li><a href="#23-补丁制作">2.3 补丁制作</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-附录">3 附录</a>
+      <ul>
+        <li><a href="#31-openeuler-kernel-分支介绍">3.1 openEuler Kernel 分支介绍</a></li>
+        <li><a href="#32-bugzilla">3.2 bugzilla</a></li>
+        <li><a href="#33-issue">3.3 issue</a></li>
+        <li><a href="#34-邮件列表">3.4 邮件列表</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-参考资料">4 参考资料</a></li>
+  </ul>
+</nav>
+        </div>  
+    </div>
+    <script type="text/javascript">
+    $(".toc__title").click( function () {
+      if($(".toc__menu").css('display') == 'none') {
+        $(".toc__menu").show(); 
+        $("#toc_menu_tip").html("收起书签");
+      } else {
+        $(".toc__menu").hide(); 
+        $("#toc_menu_tip").html("展开书签");
+      }
+    });
+    </script>
+  
+<div class="content post__content clearfix">
+			<p>openEuler 内核开发跟 linux 主线一样, 采用社区协作的方式, 我们发送补丁、咨询问题都是通过邮件进行交流的, 因此我们进行内核开发的标准流程和主线内核的开发流程是一样的.</p>
+<ol>
+<li>
+<p>首先你需要配置好你的 git, 而且要能正常使用 git 发送补丁</p>
+</li>
+<li>
+<p>下载 openEuler 内核源代码</p>
+</li>
+<li>
+<p>提交、验证 你的补丁.</p>
+</li>
+<li>
+<p>补丁验证完成后, 发往 openEuler 邮件列表, 等待 Maintainer 回复.</p>
+</li>
+<li>
+<p>参与讨论, 与 Maintainer 和其他开发者充分沟通. 如果大家有意见修改你的补丁重复步骤 2.</p>
+</li>
+<li>
+<p>你的补丁经过充分的讨论和验证后, 得到了大牛和 Maintainer 的认可, 通过了门禁和测试用例的各项考研, 最终合入内核仓库</p>
+</li>
+</ol>
+<p>当前版本 v1.2 @ 2021-03-04</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">版本</th>
+<th style="text-align:center">更新日期</th>
+<th style="text-align:center">作者</th>
+<th style="text-align:center">更新日志</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">v0.9</td>
+<td style="text-align:center">2021/03/01</td>
+<td style="text-align:center">汪雄峰</td>
+<td style="text-align:center">完成 v0.9 版本</td>
+</tr>
+<tr>
+<td style="text-align:center">v1.0</td>
+<td style="text-align:center">2021/03/01</td>
+<td style="text-align:center">成坚</td>
+<td style="text-align:center">完成了内容, 并将格式修改为 MARKDOWN</td>
+</tr>
+<tr>
+<td style="text-align:center">v1.1</td>
+<td style="text-align:center">2021/03/03</td>
+<td style="text-align:center">汪雄峰</td>
+<td style="text-align:center">完善了 issue 提交帮助</td>
+</tr>
+<tr>
+<td style="text-align:center">v1.2</td>
+<td style="text-align:center">2021/03/04</td>
+<td style="text-align:center">成坚</td>
+<td style="text-align:center">完善了 沟通交流渠道一节的内容，添加技术讨论群添加渠道</td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-环境准备与配置">1 环境准备与配置</h2>
+<hr>
+<p>我们需要一台安装了 <code>linux</code> 系统的机器, 由于你要编译内核, 最好是服务器, 当前 PC 也是可以的.</p>
+<h3 id="11-下载-openeuler-linux-内核代码">1.1 下载 openEuler linux 内核代码</h3>
+<hr>
+<p>openEuler 内核开源在 gitee 上面.</p>
+<pre><code>git clone git@gitee.com:openeuler/kernel.git
+</code></pre><p><strong>强烈建议使用 ssh 协议</strong>, 由于 kernel 仓库较大, 使用 https 协议下载, 可能会下载失败, 特别是当你辛辛苦苦下载一半然后失败的时候, 那种感觉&hellip;.</p>
+<p><img src="/kernel-portal/img/2021/03/0002-0001-clone_kernel.png" alt="clone 内核源代码"></p>
+<p>默认会把仓库下载到和仓库同名的目录下.</p>
+<p><img src="/kernel-portal/img/2021/03/0002-0002-cloned_kernel.png" alt="内核目录"></p>
+<h3 id="12-git-配置">1.2 git 配置</h3>
+<hr>
+<p>配置 git 需要配置用户名和邮箱</p>
+<pre><code>git config --global user.name &quot;Zhang San&quot;
+git config --global user.email &quot;zhangsan@163.com&quot;
+</code></pre><p>这些信息都将作为以后你提交补丁的 &ldquo;身份戳&rdquo;.</p>
+<p><img src="/kernel-portal/img/2021/03/0002-0003-signed_off_by.png" alt="Signed-off-by"></p>
+<p>待你提交补丁合入后, 你的大名将显示在 git 的 log 中.</p>
+<p>另外 git 默认配置的编辑器为 <code>EMACAS</code>, 如果你更习惯用 <code>VIM</code>, 可以通过如下命令设置 GIT 默认编辑器.</p>
+<pre><code>git config --global core.editor vim
+</code></pre><p>配置完成后的信息, 都存储在本地 <code>~/.gitconfig</code>, 你也可以直接查看和修改该文件.
+你可以可以通过 <code>git config --list</code> 查看你的 GIT 配置.</p>
+<h3 id="13-配置-git-邮箱服务器">1.3 配置 git 邮箱服务器</h3>
+<hr>
+<p>我们向 openEuler 提交补丁以及和社区的小伙伴们探讨问题, 都是通过邮件进行交流的.</p>
+<p>推荐大家使用 git send-email 来发送补丁, 直接使用 yum(或者 apt) 安装即可</p>
+<pre><code>sudo yum install git-email
+</code></pre><blockquote>
+<p>注意:
+send-email 并不是 git 的必备组件, 你可以使用 &ldquo;git send-email&rdquo; 确认一下
+如果正确显示了 send-email 的 help 信息, 那么send-email已经安装再你的系统了
+否则如果显示结果类似于下面</p>
+<pre><code># git send-email
+
+git: 'send-email' is not a git command. See 'git --help'.
+</code></pre><p>你需要安装send-email命令.你的版本可能有一个send-email的安装包.
+一般来说这个包的名字都是 &ldquo;git-email&rdquo;, 当前不同发行版可能会有差异.</p>
+</blockquote>
+<p>使用 <code>git send-email</code> 命令发送补丁是通过你邮箱的 SMTP 服务进行的, 因此我们必须正确的配置 SMTP 服务.
+以 163 邮箱为例, 配置信息如下所示:</p>
+<pre><code># cat ~/.gitconfig
+[user]
+	name = Zhang San
+	email = zhangsan@163.com
+
+[core]
+	editor = vim
+
+[sendemail]
+	from = &quot;Zhang San &lt;zhangsan@163.com&gt;&quot;
+	smtpserver = smtp.163.com
+	smtpuser = zhangsan@163.com
+	smtpserverport = 25
+	suppresscc = all
+	confirm = always
+	smtppass = xxxxxxxxxxx
+</code></pre><p>附常用邮箱的 POP/SMTP 服务.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">邮箱服务商</th>
+<th style="text-align:center">POP3 服务</th>
+<th style="text-align:center">SMTP 服务</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">163免费邮</td>
+<td style="text-align:center">pop.163.com</td>
+<td style="text-align:center">smtp.163.com</td>
+</tr>
+<tr>
+<td style="text-align:center">126免费邮</td>
+<td style="text-align:center">pop.126.com</td>
+<td style="text-align:center">smtp.126.com</td>
+</tr>
+<tr>
+<td style="text-align:center">yeah.net免费邮</td>
+<td style="text-align:center">pop.yeah.net</td>
+<td style="text-align:center">smtp.yeah.net</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>注意, 目前国内的大多数邮箱为了安全, 都是默认关闭了 POP3/SMTP 等服务的, 我们需要自己手动打开. 可以参见网易提供的帮助文档或者查阅其他网络资源, 比如这篇 <a href="https://jingyan.baidu.com/article/3f16e003e327772591c1039f.html">网易163,126邮箱如何开启POP3/SMTP/IMAP服务</a></p>
+<p>另: 服务器地址也可以在设置页面找到</p>
+<p>另外 163 邮箱过程中, 还是用了授权码作为 SMTP 服务的验证密码, 因此如果开启了授权码, 那么 smtppass 字段填写的就是你的授权码而不是登陆密码.</p>
+</blockquote>
+<p>可以先简单发一封邮件测试下</p>
+<pre><code>git send-email -to zhangsan@163.com ./xxxx.patch
+</code></pre><p><img src="/kernel-portal/img/2021/03/0002-0004-send_email_test.png" alt="发送邮件测试"></p>
+<h2 id="2-补丁制作与提交">2 补丁制作与提交</h2>
+<hr>
+<h3 id="21-修改内核代码解决bug并提交">2.1 修改内核代码解决bug并提交</h3>
+<hr>
+<p>这个过程我们不详细描述了, 大家把问题解决掉之后, 提交到本地, 然后验证, 待测试验证完成之后, 就可以把自己提交的修改制作成补丁然后进行提交.</p>
+<h3 id="22-补丁描述">2.2 补丁描述</h3>
+<hr>
+<h4 id="221-补丁基本格式">2.2.1 补丁基本格式</h4>
+<hr>
+<p><img src="/kernel-portal/img/2021/03/0002-0005-patch_format.png" alt="补丁的基本格式"></p>
+<p>commit 信息如下图所示，包括下面4部分内容 :</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">格式</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">是否 openEuler 独有</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">标题</td>
+<td style="text-align:center">简要描述这个提交完成了什么功能或修复了什么问题</td>
+<td style="text-align:center">N</td>
+</tr>
+<tr>
+<td style="text-align:center">commit头</td>
+<td style="text-align:center">补丁头是 openEuler 追溯补丁来源和功能的手段</td>
+<td style="text-align:center">Y</td>
+</tr>
+<tr>
+<td style="text-align:center">commit内容</td>
+<td style="text-align:center">具体描述这个 commit 为什么有必要做, 怎么修改的, 有没有其他要注意的等等</td>
+<td style="text-align:center">N</td>
+</tr>
+<tr>
+<td style="text-align:center">引用 or 修复</td>
+<td style="text-align:center">非必须, 主要是改补丁引用的内容, 如果是个修复补丁, 那么列出来你修复的问题是哪个补丁引入的</td>
+<td style="text-align:center">N</td>
+</tr>
+<tr>
+<td style="text-align:center">签名</td>
+<td style="text-align:center">包含了 Signed-off-by/Reviewed-by/Suggested-by/Reported-by/Tested-by 等等信息</td>
+<td style="text-align:center">N</td>
+</tr>
+</tbody>
+</table>
+<p>关于 <strong>签名</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">签名</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Signed-off-by</td>
+<td style="text-align:center">这个是我们最常使用的签名戳, 它包含了很多的含义, 表明你是这个补丁的作者或者你对这个修改进行了同步, 正常来说, 一些主线的补丁我们回合后, 要在最后面带上我们自己的签名, 表明这个补丁是你审视了作者的修改之后, 重新发布的. 的需要注意的是, 最后一个 Signed-off-by 必须是提交补丁的开发人员.</td>
+</tr>
+<tr>
+<td style="text-align:center">Reviewed-by</td>
+<td style="text-align:center">openEuler 各个模块的 Commiter/Maintainer 对你的补丁进行 review 完成之后, 就会签上这个戳, 表明他们认可了你的修改, 只有看到了这个戳, Commiter 才有可能将此补丁合入</td>
+</tr>
+<tr>
+<td style="text-align:center">Reported-by</td>
+<td style="text-align:center">一般用于别的小伙伴发现的 BUG 或者问题等, 当其他兄弟完成修复后, 处于对上报问题的兄弟工作的认可, 带上这个戳把补丁发出来. 毕竟发现问题也是需要花费时间的, 大家可能解决起来比较棘手的问题, 都可以发出来让大家一起讨论和修复, 修复问题的时候带上上报人的戳, 即是对其辛勤功劳的肯定, 也是一种荣誉和认可. 毕竟只有多多的发现问题, openEuler 才能不断发展和壮大. 所以也希望大家发现问题多发出来讨论, 多上报. 如果你发现的问题被其他兄弟修复之后, 没有带你 Reported-by, 你可可以直接指出, 辛勤的劳动值得获得的认可.</td>
+</tr>
+<tr>
+<td style="text-align:center">Suggested-by</td>
+<td style="text-align:center">表明这个修改思路是这位兄弟提出的, 但是是你实现的. 同样提出解决问题的方法, 也是要付出的, 理所应当获得认可</td>
+</tr>
+<tr>
+<td style="text-align:center">Tested-by</td>
+<td style="text-align:center">表明这个补丁被这位兄弟测试过了, 没有问题. 一些修复补丁或者特性补丁, 如果你比较感兴趣, 欢迎大家多多测试, 测试完成后, 恢复邮件, 签上这个戳. Commiter 在提交的时候就会把的戳带上</td>
+</tr>
+<tr>
+<td style="text-align:center">Co-developed-by</td>
+<td style="text-align:center">协同开发, 表明这个补丁是由多个兄弟共同开发的. 他的身份是等同于作者的, 一般来说 PATCH 邮件的 From 字段在提交之后, 会默认作为 Author, 但是如果你希望表明其他人也参与了开发, 请使用此签名.</td>
+</tr>
+</tbody>
+</table>
+<p>关于 签名 的详细信息, 可以参考内核文档 <a href="https://gitee.com/openeuler/kernel/blob/kernel-4.19/Documentation/process/submitting-patches.rst">Documentation/process/submitting-patches.rst</a> 或者<a href="https://www.kernel.org/doc/html/latest/process/submitting-patches.html">主线内核手册</a>.</p>
+<p>关于 <strong>引用和修复</strong></p>
+<p>如果你的补丁是一个修复补丁, 那么我们一般建议在提交补丁的时候, 找到引入问题的那个 commit, 然后填写 Fixes 字段.</p>
+<h4 id="222-openeuler-补丁格式要求">2.2.2 openEuler 补丁格式要求</h4>
+<hr>
+<p>openEuler 的补丁格式沿用了社区的格式, 但是为了 openEuler Kernel 为了对补丁和问题的来源和定位信息进行跟踪, 因此在补丁的 <code>commit message</code> 之前要求大家添加一些补丁头.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">字段</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">XXX inclusion</td>
+<td style="text-align:center">表明这个补丁是哪个组织或者机构提交的或有谁维护, 如果是主线补丁请填 mainline, 如果是 LTS 补丁, 请填写 stable, 自研补丁填写对应机构的的缩写</td>
+</tr>
+<tr>
+<td style="text-align:center">category</td>
+<td style="text-align:center">表明这个补丁的类别, 一般如下字段可选 : bugfix/performance/feature/doc</td>
+</tr>
+<tr>
+<td style="text-align:center">bugzilla</td>
+<td style="text-align:center">用于跟踪此问题的详细信息和定位日志, 通过关联网站查阅此信息, 可以清楚的该补丁修改的问题或者特性完成的工作, 以及需求来源等等信息.<!-- raw HTML omitted -->所有你关于此补丁想知道的可能都在这里, 一般 bugziila 号或者 issue 号任选其一或者其二<!-- raw HTML omitted -->bugzilla 字段填写 bugzilla 号或者 issue 号即可, 不需要填全部 URL 链接, bugzilla 和 issue 的网站是固定的, 有编号就可以查询到.</td>
+</tr>
+<tr>
+<td style="text-align:center">CVE</td>
+<td style="text-align:center">如果当前补丁是 CVE 修复补丁, 则必须填写, 否则请填 NA</td>
+</tr>
+</tbody>
+</table>
+<p>自研特性, 请使用此格式提交</p>
+<pre><code>    hulk inclusion
+    category: bugfix
+    bugzilla: 34278
+    CVE: NA
+</code></pre><p>主线补丁, 请使用此格式提交.</p>
+<pre><code>    mainline inclusion
+    from mainline-v5.5-rc1
+    commit f1a54ae9af0da4d76239256ed640a93ab3aadac0
+    category: bugfix
+    bugzilla: 25285
+    CVE: NA
+</code></pre><p>关于补丁头的更详细信息, 请参照 <a href="">openEuler Kernel 补丁合入规范</a>, 信息如有出入, 以合入规范为准.</p>
+<h3 id="23-补丁制作">2.3 补丁制作</h3>
+<hr>
+<p>使用 <code>git show</code> 可以查看最近提交的 <code>commit</code></p>
+<h4 id="231-生成-patch">2.3.1 生成 patch</h4>
+<hr>
+<p>使用 format-patch 生成 PATCH</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-s/&ndash;SIGnoff</td>
+<td style="text-align:center">添加自己的 Signed-off-by 戳, 自己提交的补丁, 不管是不是自己自研的, 都是要带上自己的签名的, 使用 -s 自动在 patch 最后添加自己的签名</td>
+</tr>
+<tr>
+<td style="text-align:center">&ndash;subject-prefix &ldquo;PATCH openEuler-1.0-LTS&rdquo;</td>
+<td style="text-align:center">为补丁添加前缀, 我们的补丁必须显式告诉 Commiter/Reviewer/Maintainer 们, 补丁是为哪个版本或者分支提供的</td>
+</tr>
+<tr>
+<td style="text-align:center">-N</td>
+<td style="text-align:center">将前 N 补丁生成 PATCH 文件, 比如 -65 将生成 65 个 PATCH, 我们可以指定开始生成的位置, 指定 tag/commitid 等都可以</td>
+</tr>
+<tr>
+<td style="text-align:center">-o XXXX</td>
+<td style="text-align:center">将 PATCH 生成到 XXXX 目录下</td>
+</tr>
+</tbody>
+</table>
+<p>使用 git format-patch 生成补丁文件</p>
+<ul>
+<li>生成单个 patch</li>
+</ul>
+<p>我们针对某个 commit 生成一个 PATCH 文件出来</p>
+<pre><code>git format-patch -s -1 9ced0cc25946
+</code></pre><p><img src="/kernel-portal/img/2021/03/0002-0006-format_patch.png" alt="生成 PATCH"></p>
+<ul>
+<li>如何生成补丁集</li>
+</ul>
+<p>对于某些比较大的改动，涉及多个模块，我们需要提交多次commit，我们通常将这些提交生成一个补丁集，使用的命令如下图所示.</p>
+<pre><code>git format-patch -s --cover-letter --subject-prefix &quot;PATCH v3 openEuler-1.0-LTS&quot; -10 -o  mpam/20210301/v3
+</code></pre><p><img src="/kernel-portal/img/2021/03/0002-0007-format_patchset.png" alt="cover-letter"></p>
+<p>上面的命令, 将当前 HEAD 位置开始, 往前的 10 个补丁生成 PATCH 文件, 并输出到当前目录 mpam/20210301/v1 路径下, 补丁的标题前缀 &ldquo;PATCH v3 openEuler-1.0-LTS&rdquo;, 表示这个补丁是为 openEuler-20.03-LTS 提供的, 并且已经是第 3 个版本.</p>
+<p><code>HEAD~3</code> 表示补丁集包括最近的3次提交</p>
+<p>一般一组 patchset 我们会使用 <code>--cover-letter</code> 生成补丁集封面. 这个封面中</p>
+<p>这样我们将在patch目录下生成一个补丁集封面 0000-cover-letter.patch，编辑该文件</p>
+<p>修改第 1 个框中(<code>*** SUBJECT HERE ***</code>)的内容为对该补丁集的简要描述
+在第2个框中(<code>*** BLURB HERE ***</code>)具体描述该补丁集.</p>
+<blockquote>
+<p>注意 将 <code>***</code> 一起替换掉, 要不然你的标题叫 <code>*** fix XXXXXX ***</code> 也是蛮奇怪的.
+这个封面补丁只是作者呈现补丁集用的, 方便大家对整个补丁集有一个直观上的认识. 在 apply 之后这个补丁并不会出现在 git log 中.</p>
+</blockquote>
+<p><img src="/kernel-portal/img/2021/03/0002-0008-cover_letter.png" alt="cover-letter"></p>
+<blockquote>
+<p>注意我们可以指定 commitid 为 patchset 的结束位置
+如果没有指定要生成的 PATCH 结束位置的 COMMIT 号, 则默认使用 HEAD.</p>
+</blockquote>
+<ul>
+<li>Change Log 信息</li>
+</ul>
+<p>一般软件发布的时候, Change Log 用来说明与上一个版本的差异, 对于内核 PATCH 来, 我们的版本在经历了几次修改之后, 也建议用 Change Log 描述下相比较之前版本的修改点. 这有助于 Commiter 对补丁的修改和逻辑有一个大致的了解.</p>
+<p>一组 patchset 的时候, 一般我们把 Change Log 写到封面补丁中, 在补丁集描述之后, 就填写 Change Log 信息. 由于这个补丁不会出现在 git log 中, 自然也不用担心 Change Log 出现在版本的 git log 中. 我们以内核主线社区 patchwork 中的 patchset 举例, <a href="https://lore.kernel.org/patchwork/cover/1340764">参见</a></p>
+<p>对于单个 patch, 如果 Change Log 直接写到 commit message 后面, apply 之后就会体现在 git log 中, 这自然不是我们想要的. 此时 git 为我们提供了一种更简单的方式. 在最后一个 Signed-off-by 之后, git 打印了几个短杠 &ldquo;&mdash;&rdquo;, 在这几个短杠之前, 修改文件列表之前, 我们可以在这里畅所欲言, 而不会体现在 git log 中. 这里也是我们可以填写 Change Log 的地方. 同样以主线 patchwork 中的 patch 为例, <a href="https://lore.kernel.org/patchwork/patch/1328176/">参见</a></p>
+<h4 id="233-发送补丁到-openeuler-linux-内核社区">2.3.3 发送补丁到 openEuler linux 内核社区</h4>
+<hr>
+<p>使用git send-email 发送邮件到openEuler社区的邮件列表 <a href="mailto:kernel@openeuler.org">kernel@openeuler.org</a>. 发送邮件时可以CC自己的邮箱，这样自己可以看到发出来的邮件是什么样子.发送到邮件列表的邮件会被订阅该邮件列表的所有人收到，包括维护该模块的maintainer，maintainer如果认为补丁没问题就会回复Reviewed-by，补丁会在后续合入openEuler.</p>
+<pre><code>git send-email –cc zhangsan@163.com --to kernel@openeuler.org 0001-arm64-fix-compile-error-when-CONFIG_ACPI-is-not-enab.patch --suppress-cc=all
+</code></pre><p>建议大家发送的邮件都抄送相关 Commiter 一份.</p>
+<h2 id="3-附录">3 附录</h2>
+<hr>
+<h3 id="31-openeuler-kernel-分支介绍">3.1 openEuler Kernel 分支介绍</h3>
+<hr>
+<p>20.03 版本(基于 4.19 内核)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">分支</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">openEuler-1.0-LTS</td>
+<td style="text-align:center">20.03 商用分支</td>
+</tr>
+<tr>
+<td style="text-align:center">kernel-4.19</td>
+<td style="text-align:center">20.03 NEXT 分支, 可能包含了较多没有合入商用分支的补丁</td>
+</tr>
+<tr>
+<td style="text-align:center">openEuler-20.09</td>
+<td style="text-align:center">20.09 创新分支</td>
+</tr>
+</tbody>
+</table>
+<p>21.03 版本(基于 5.10 内核)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">分支</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">openEuler-21.03</td>
+<td style="text-align:center">21.03 创新分支</td>
+</tr>
+<tr>
+<td style="text-align:center">OLK-5.10</td>
+<td style="text-align:center">21.03 NEXT 分支</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>2020/03/01 21.03 版本目前还没有发布, 因此目前没有商用分支</p>
+</blockquote>
+<h3 id="32-bugzilla">3.2 bugzilla</h3>
+<hr>
+<p>Bugzilla 是一个开源的缺陷跟踪系统(Bug-Tracking System), 各个 linux 社区或者发行版基本都会使用这套平台跟踪开发过程中的错误信息.</p>
+<p>openEuler bugzilla 目前已经上线了, 大家可以使用这个平台提交各类问题.
+地址: <a href="https://bugzilla.openeuler.org">https://bugzilla.openeuler.org</a></p>
+<h3 id="33-issue">3.3 issue</h3>
+<hr>
+<p>issue的类型一般选择 &ldquo;缺陷，标题格式为 &ldquo;[分支名 架构] 具体问题描述xxx&rdquo;.</p>
+<p><a href="https://gitee.com/openeuler/kernel/issues">https://gitee.com/openeuler/kernel/issues</a></p>
+<p>我们可以向 openEuler linux内核提一个issue, 如下图所示.</p>
+<p><img src="/kernel-portal/img/2021/03/0002-0009-create_issue.png" alt="提交 issue"></p>
+<p><strong>温馨提示</strong>
+issue 请在 <strong><a href="https://gitee.com/openeuler/kernel">openeuler/kernel</a></strong> 仓库创建
+<strong>不要</strong>在 <strong><a href="https://gitee.com/src-openeuler/kernel">src-openeuler/kernel</a></strong> 仓库创建
+src-openeuler/kernel 是 openEuler 用于构建 kernel 镜像和 RPM 包的 SPEC 仓库, 并不是内核仓库.</p>
+<h3 id="34-邮件列表">3.4 邮件列表</h3>
+<hr>
+<p>为了更好更参与openEuler社区，我们可以通过下面的网址订阅openEuler社区邮件列表，点击 Kernel-discuss 或者 Kernel，填入名字和邮箱即可订阅.</p>
+<p>订阅邮件列表后，我们也可以收到其他参与者发到openEuler linux内核社区的补丁，与其他人一起讨论补丁内容，协作开发.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">邮件列表</th>
+<th style="text-align:center">地址</th>
+<th style="text-align:center">归档地址</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">openEuler Kernel</td>
+<td style="text-align:center"><a href="mailto:kernel@openeuler.org">kernel@openeuler.org</a></td>
+<td style="text-align:center"><a href="https://mailweb.openeuler.org/hyperkitty/list/kernel@openeuler.org">Archive</a></td>
+<td style="text-align:center">kernel 的主邮件列表, 主要是 kernel patch 的提交和讨论. 其他关于 kernel 的所有信息都可以发送到此邮件列表</td>
+</tr>
+<tr>
+<td style="text-align:center">Kernel-discuss</td>
+<td style="text-align:center"><a href="mailto:kernel-discuss@openeuler.org">kernel-discuss@openeuler.org</a></td>
+<td style="text-align:center">NA</td>
+<td style="text-align:center">主要用于讨论内核相关问题, 鉴于 kernel 主邮件列表邮件可能较多, 喜欢清静, 只想静静的讨论技术的可以订阅此邮件列表.</td>
+</tr>
+</tbody>
+</table>
+<p>查找 openEuler 更多邮件列表, <a href="https://openeuler.org/zh/community/mailing-list">请前往</a></p>
+<h2 id="4-参考资料">4 参考资料</h2>
+<hr>
+<p><a href="https://gitee.com/openeuler/kernel/blob/kernel-4.19/README">Contributions to openEuler Kernel project</a></p>
+<p><a href="https://gitee.com/openeuler/community/tree/master/sig/Kernel">openEuler Kernel SIG</a></p>
+
+		</div>
+		
+<h2 id="openeuler-kernel-sig-沟通交流渠道">openEuler Kernel SIG 沟通交流渠道</h2>
+<hr>
+<li>由于 openEuler Kernel SIG 官方群已经超过了 200 人, 无法通过扫描二维码加群, 为了方便大家及时加入 openEuler Kernel SIG 技术讨论群, 新建了一个名为 [&#43;]openEuler Kernel 技术交流 的中转群, 该群不讨论技术, 加入微信群后, 管理员会将大家拉入 openEuler Kernel SIG 官方群。请直接扫码加群，或者添加管理员账号直接加入技术群, 备注(SIG 加群-所在公司 or 学生-昵称)</a></li>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">微信群</th>
+<th style="text-align:center">管理员</th>
+<th style="text-align:center">公众号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:center"><img src="/kernel-portal/img/wechat/openEuler_kernel_SIG_wechat_TMP.png" alt="GROUP_CHAT"></td>
+  <td style="text-align:center"><img src="/kernel-portal/img/wechat/openEuler_gatieme_wechat.png" alt="GROUP_ADMIN"></td>
+  <td style="text-align:center"><img src="/kernel-portal/img/wechat/qrcode.png" alt="GROUP_WP"></td>
+</tr>
+</tbody>
+</table>
+
+
+		
+<div class="post-archive">
+    <ul class="post-copyright">
+        <li><strong>原文作者：</strong><a rel="author" href="https://openeuler.gitee.io/kernel-portal/">openEuler Kernel SIG</a></li>
+        <li style="word-break:break-all"><strong>原文链接：</strong><a href="https://openeuler.gitee.io/kernel-portal/post/2021/03/0002-contributions_to_openeuler_kernel_project/">https://openeuler.gitee.io/kernel-portal/post/2021/03/0002-contributions_to_openeuler_kernel_project/</a></li>
+        <li><strong>版权声明：</strong>本作品采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可，非商业转载请注明出处（作者，原文链接），商业转载请联系作者获得授权。</li>
+    </ul>
+</div>
+<br/>
+
+
+		
+<div class="post__tags tags clearfix">
+	<svg class="icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item"><a class="tags__link btn" href="/kernel-portal/tags/openeuler/" rel="tag">openEuler</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/kernel-portal/tags/document/" rel="tag">Document</a></li>
+	</ul>
+</div>
+	</article>
+</main>
+<div class="social-share"></div>
+  <br/>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="openEuler Kernel SIG avatar" src="/kernel-portal/img/avatar.png" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name"></span>
+	</div>
+	<div class="authorbox__description">
+		最具活力的 Linux 内核开发社区
+	</div>
+</div>
+
+
+
+<aside class="sidebar">
+<h4>相关文章</h4>
+<div class="widget__content">
+		<ul class="widget__list">
+	
+	<li><a href="/kernel-portal/post/2021/03/0001-openeuler_patch_format_specification/">openEuler kernel 补丁合入规范</a></li>
+	
+</ul>
+</div>
+<br/>
+</aside>
+
+
+<nav class="post-nav flex">
+	<div class="post-nav__item post-nav__item--prev">
+		<a class="post-nav__link" href="/kernel-portal/post/2021/03/0001-openeuler_patch_format_specification/" rel="prev"><span class="post-nav__caption">«&thinsp;前一篇</span><p class="post-nav__post-title">openEuler kernel 补丁合入规范</p></a>
+	</div>
+</nav>
+
+
+
+<script data-isso="/isso/" src="/isso/js/embed.min.js"></script>
+<section id="isso-thread"></section>
+
+
+			</div>
+			<aside class="sidebar"><div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<label>
+			<input class="widget-search__field" type="search" placeholder="搜索..." value="" name="q" aria-label="搜索...">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="https://openeuler.gitee.io/kernel-portal/" />
+	</form>
+</div>
+<div class="widget-recent widget">
+	<h4 class="widget__title">近期文章</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/kernel-portal/post/2021/03/0002-contributions_to_openeuler_kernel_project/">如何参与 openEuler linux 内核开发</a></li>
+			<li class="widget__item"><a class="widget__link" href="/kernel-portal/post/2021/03/0001-openeuler_patch_format_specification/">openEuler kernel 补丁合入规范</a></li>
+			<li class="widget__item"><a class="widget__link" href="/kernel-portal/archives/">文章归档</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">标签</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/kernel-portal/tags/document" title="Document">Document (2)</a>
+		<a class="widget-taglist__link widget__link btn" href="/kernel-portal/tags/openeuler" title="Openeuler">Openeuler (2)</a>
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2021 openEuler Kernel SIG.
+			<span class="footer__copyright-credits">使用 <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> 技术与 <a href="https://github.com/kingfsen/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a>主题</span>
+      <br>
+      <span id="busuanzi_container_site_pv">本站访问量：<span id="busuanzi_value_site_pv"></span>次</span>
+      &nbsp;
+      <span id="busuanzi_container_site_uv">您是本站第 <span id="busuanzi_value_site_uv"></span> 位访问者</span>
+		</div>
+	</div>
+</footer>
+
+	</div>
+<script async defer src="/kernel-portal/js/menu.js"></script>
+<script async src="/kernel-portal/js/highlight.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+ 
+  <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https'){
+   bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+  bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+ 
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?1f38fa809";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<script type="text/javascript">
+    (function(){
+        $("pre code").parent().addClass("line-numbers")
+    }())
+</script>
+
+</body>
+</html>

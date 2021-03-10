@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>openEuler kernel 补丁合入规范 - openEuler Kernel SIG</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<script type="text/javascript" src="/kernel-portal/js/jquery.min.js"></script>
+	
+	<meta name="description" content="">
+	<meta name="generator" content="Hugo 0.81.0" />
+	<meta property="og:title" content="openEuler kernel 补丁合入规范" />
+<meta property="og:description" content="openEuler kernel 为了内核版本质量，在尽可能方便大家参与社区的前提下，加强了对合入补丁的管控，保证补丁安全、可信、可追溯，因此对 openEuler Kernel 合入补丁的方式和格式都做了一些约束和建议，本规范旨在为大家合入补丁提供必要的指导。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://openeuler.gitee.io/kernel-portal/post/2021/03/0001-openeuler_patch_format_specification/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-03-01T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-03-01T00:00:00&#43;00:00" />
+
+
+	<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="openEuler kernel 补丁合入规范"/>
+<meta name="twitter:description" content="openEuler kernel 为了内核版本质量，在尽可能方便大家参与社区的前提下，加强了对合入补丁的管控，保证补丁安全、可信、可追溯，因此对 openEuler Kernel 合入补丁的方式和格式都做了一些约束和建议，本规范旨在为大家合入补丁提供必要的指导。"/>
+
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="/kernel-portal/css/style.css">	
+	<link rel="stylesheet" type="text/css" href="/kernel-portal/css/highlight.css">
+	
+	
+	<link rel="stylesheet" href="/kernel-portal/css/share.min.css">
+  <script src="/kernel-portal/js/social-share.min.js"></script>
+  <script src="/kernel-portal/js/qrcode.js"></script>
+	
+	<link rel="stylesheet" href="/kernel-portal/css/custom.css">
+	<link rel="shortcut icon" href="/kernel-portal/favicon.ico">
+		
+	
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container">
+		<div class="logo">
+			<a class="logo__link" href="/kernel-portal/" title="openEuler Kernel SIG" rel="home">
+			<div class="logo__title">openEuler Kernel SIG</div>			
+				<div class="logo__tagline">最具活力的 Linux 内核开发社区</div> 
+			</a>
+			
+			<div class="float_right"><div class="social-share"></div>
+  <br/></div>
+			
+		</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">选择</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/kernel-portal/about/">关于</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/kernel-portal/post/">博客</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/kernel-portal/archives/">归档</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+  
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</header>
+
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">openEuler kernel 补丁合入规范</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
+	<time class="meta__text" datetime="2021-03-01T00:00:00">March 01, 2021</time>
+</div>
+
+<div class="meta__item-categories meta__item">
+	<svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta__text"><a class="meta__link" href="/kernel-portal/categories/%e5%bc%80%e5%8f%91%e6%8c%87%e5%8d%97" rel="category">开发指南</a></span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
+	<time class="meta__text">5 分钟</time>
+</div></div>
+		</header>
+
+    <h5 id="wc" style="font-size: 1rem;text-align: center;">2300 Words|Read in about 5 Min|本文总阅读量<span id="busuanzi_value_page_pv"></span>次</h5>
+  
+    <div class="toc">
+        <div class="toc__title"><span id="toc_menu_tip">展开书签</span></div>
+        <div class="toc__menu">
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-目的">1 目的</a></li>
+    <li><a href="#2-适用范围">2 适用范围</a></li>
+    <li><a href="#3--对补丁的基本要求">3  对补丁的基本要求</a>
+      <ul>
+        <li><a href="#31-贡献openeuler社区之前需要签署贡献者协议-cla">3.1 贡献openEuler社区之前需要签署贡献者协议 （CLA)</a></li>
+        <li><a href="#32-补丁格式要求">3.2 补丁格式要求</a></li>
+        <li><a href="#33-补丁的维护与生命周期">3.3 补丁的维护与生命周期</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-流程要求">4 流程要求</a></li>
+  </ul>
+</nav>
+        </div>  
+    </div>
+    <script type="text/javascript">
+    $(".toc__title").click( function () {
+      if($(".toc__menu").css('display') == 'none') {
+        $(".toc__menu").show(); 
+        $("#toc_menu_tip").html("收起书签");
+      } else {
+        $(".toc__menu").hide(); 
+        $("#toc_menu_tip").html("展开书签");
+      }
+    });
+    </script>
+  
+<div class="content post__content clearfix">
+			<p>阅读本规范之前，请先了解 <a href="https://gitee.com/openeuler/community/tree/master/sig/Kernel#kernel-%E7%9A%84%E5%88%86%E6%94%AF">openEuler 内核的分支管理</a>。</p>
+<p>当前版本 v1.1 @ 2021-03-01</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">版本</th>
+<th style="text-align:center">更新日期</th>
+<th style="text-align:center">作者</th>
+<th style="text-align:center">更新日志</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">v0.9</td>
+<td style="text-align:center">2021/02/26</td>
+<td style="text-align:center">谢秀奇</td>
+<td style="text-align:center">完成 v0.9 版本</td>
+</tr>
+<tr>
+<td style="text-align:center">v1.0</td>
+<td style="text-align:center">2021/03/01</td>
+<td style="text-align:center">成坚</td>
+<td style="text-align:center">精简了内容</td>
+</tr>
+<tr>
+<td style="text-align:center">v1.1</td>
+<td style="text-align:center">2021/03/01</td>
+<td style="text-align:center">谢秀奇</td>
+<td style="text-align:center">对部门内容做了修正, 内容更精简</td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-目的">1 目的</h2>
+<hr>
+<p>为规范和统一 openEuler 内核补丁的提交流程、方式、格式，方便对补丁/特性的分类、识别、统计、追溯以及移植，特制定openEuler kernel 补丁合入规范（以下简称“本规范”）。</p>
+<h2 id="2-适用范围">2 适用范围</h2>
+<hr>
+<p>本规范适用于 openEuler 在开发以及已布的所有版本的开发过程。</p>
+<p>包括但不限于以下版本:</p>
+<ul>
+<li>
+<p>openEuler kernel 4.19 内核开发；</p>
+</li>
+<li>
+<p>openEuler kernel 5.10 内核开发；</p>
+</li>
+</ul>
+<h2 id="3--对补丁的基本要求">3  对补丁的基本要求</h2>
+<hr>
+<p>openEuler 的目标是：</p>
+<ul>
+<li>
+<p>成为技术创新的平台，加速技术创新、成熟及落地应用</p>
+</li>
+<li>
+<p>维护安全稳定可靠的、性能领先、生态丰富的的稳定内核，方便产业界快速应用</p>
+</li>
+</ul>
+<p>因此，满足这个原则的补丁或特性都可以提交给 openEuler 内核。</p>
+<h3 id="31-贡献openeuler社区之前需要签署贡献者协议-cla">3.1 贡献openEuler社区之前需要签署贡献者协议 （CLA)</h3>
+<hr>
+<p><a href="https://openeuler.org/zh/community/contribution/">https://openeuler.org/zh/community/contribution/</a></p>
+<h3 id="32-补丁格式要求">3.2 补丁格式要求</h3>
+<hr>
+<p>【原则】</p>
+<p>原则1：补丁的来源应当清晰、明确</p>
+<p>原则2：代码的 licence 须满足开源要求（GPL v2)</p>
+<p>原则3：补丁应遵循 Linux 内核社区的编码规范</p>
+<p>原则4：补丁 Commit Message 应该清晰完整，有利于判断版本是否需要，有利于补丁在多版本间移植</p>
+<p>原则5：补丁有适当的分类标识，便于识别和统计</p>
+<p>原则6：补丁应有标识，能区分是发给哪个版本/分支的补丁</p>
+<p>【规则】</p>
+<p>规则1：补丁标题需要标识要推送到哪个分支，分支表示正确，才能触发 CI 检查。如</p>
+<p><code>[PATCH OLK-5.10]  表示是向 OLK-5.10 分支推送补丁</code></p>
+<p>规则2：如果补丁需要修改之后再次发送，需要在补丁标题中标注版本，如</p>
+<p><code>[PATCH OLK-5.10 v2]</code></p>
+<p>规则3：补丁需要有来源标识，比如 mainline inclusion, stable inclusion，dist inclusion 等。下表给出分类建议，不在列表中的，可以自行选择一个有辨识度的标识，或者使用 openEuler inclusion.</p>
+<table>
+<thead>
+<tr>
+<th>来源标识</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mainline inclusion</td>
+<td>主线 backport</td>
+</tr>
+<tr>
+<td>stable inclusion</td>
+<td>上游 stable 分支的补丁</td>
+</tr>
+<tr>
+<td>maillist inclusion</td>
+<td>发到社区，但是还没进主线的补丁</td>
+</tr>
+<tr>
+<td>hulk inclusion</td>
+<td>openEuler kernel 团队开发的补丁</td>
+</tr>
+<tr>
+<td>virt inclusion</td>
+<td>虚拟化相关的补丁</td>
+</tr>
+<tr>
+<td>ascend inclusion</td>
+<td>昇腾相关的补丁或特性</td>
+</tr>
+<tr>
+<td>kunpeng inclusion</td>
+<td>鲲鹏相关的补丁或特性</td>
+</tr>
+<tr>
+<td>dist inclusion</td>
+<td>从其他发行版移植的补丁</td>
+</tr>
+<tr>
+<td>raspberrypi inclusion</td>
+<td>树莓派相关的补丁合入</td>
+</tr>
+<tr>
+<td>openEuler inclusion</td>
+<td>其他发送到openEuler社区的非上游补丁</td>
+</tr>
+</tbody>
+</table>
+<p>规则4: 补丁应有分类标识，一般分为 bugfix，performance，feature，doc.</p>
+<p>规则5：如果补丁来说上游主线社区，需要指定来自主线哪个版本，如</p>
+<p><code>from mainline-5.11</code></p>
+<p>规则6：如果补丁来自上游 stable 分支，需要指定来自 stable 哪个版本，如</p>
+<p><code>from stable-5.10.18</code></p>
+<p>规则7：如果补丁来自上游社区，主线或stable分支，需要指定补丁的 commit id，如</p>
+<p><code>commit 0becc0ae5b42828785b589f686725ff5bc3b9b25</code></p>
+<p>规则8：每个补丁或补丁集需要指定 bugzilla 链接，用例说明该补丁解决了什么问题，或新增了什么特性。如果一个特性补丁集，或回合 stable 的补丁，可以使用相同的bugzilla链接标识一组补丁集。如</p>
+<p><code>bugzilla: https://bugzilla.openeuler.org/show_bug.cgi?id=6</code></p>
+<p>规则9：补丁需要有分类标识，如 category: bugfix, category: feature 等</p>
+<p>规则10：如果补丁是 CVE 的修复补丁，需要指定 CVE 编号， 如 CVE: CVE: CVE-2020-36158</p>
+<p>规则11：如果补丁是来自内核社区还没进主线的补丁，需要给出补丁或补丁集链接，如：</p>
+<p><code>Reference: https://lwn.net/Articles/839107/</code></p>
+<p>建议12：回合社区Bugfix补丁时，可以在原补丁commit message 之前，增加额外的描述，一遍能更好的理解为什么需要合入该补丁。</p>
+<p>规则13：回合社区补丁时，commit message 中新增的部分，与原始部分，需要有分割线，如</p>
+<pre><code class="language-mainline" data-lang="mainline">from $mainline-version
+commit $id
+category: $category
+bugzilla: $bug-id
+CVE: $cve-id
+
+additional changelog
+
+--------------------------------
+
+original changelog
+
+Signed-off-by: $yourname &lt;$yourname@huawei.com&gt;   [M]
+</code></pre><p>规则14: 不论是自己开发的补丁，还是从社区回合的补丁，还是帮团队其他人员转发的补丁，都需要增加自己的签名。下面说明摘自内核补丁提交说明（文档位置：Documentation/process/submitting-patches.rst）。</p>
+<pre><code>Sign your work - the Developer’s Certificate of Origin
+   As the same of upstream kernel community, you also need to sign your patch.
+
+   See: https://www.kernel.org/doc/html/latest/process/submitting-patches.html
+
+   The sign-off is a simple line at the end of the explanation for the patch,
+   which certifies that you wrote it or otherwise have the right to pass it
+   on as an open-source patch. The rules are pretty simple: if you can certify
+   the below:
+
+   Developer’s Certificate of Origin 1.1
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+     By making a contribution to this project, I certify that:
+
+     (a) The contribution was created in whole or in part by me and I have
+         the right to submit it under the open source license indicated in
+         the file; or
+
+     (b  The contribution is based upon previous work that, to the best of
+         my knowledge, is covered under an appropriate open source license
+         and I have the right under that license to submit that work with
+         modifications, whether created in whole or in part by me, under
+         the same open source license (unless I am permitted to submit under
+         a different license), as indicated in the file; or
+
+     (c) The contribution was provided directly to me by some other person
+         who certified (a), (b) or (c) and I have not modified it.
+
+     (d) I understand and agree that this project and the contribution are
+         public and that a record of the contribution (including all personal
+         information I submit with it, including my sign-off) is maintained
+         indefinitely and may be redistributed consistent with this project
+         or the open source license(s) involved.
+
+   then you just add a line saying:
+
+     Signed-off-by: Random J Developer &lt;random@developer.example.org&gt;
+
+   using your real name (sorry, no pseudonyms or anonymous contributions.)
+</code></pre><p>规则15: 自己开发的补丁，需要经过 ./scripts/checkpatch.pl 工具检查，不能有 Error 项。</p>
+<p>建议16: 你可以在补丁的 commit message 中标记补丁要回合到的维护分支，如果补丁没有冲突，maintainer 会自动将其合到对应的分支。</p>
+<ul>
+<li>
+<p>例如，下面这一行信息，表示该补丁需要回合到 openEuler-20.03-LTS-SP1，openEuler-20.03-LTS-SP2两个分支中。</p>
+<p><code>backport: openEuler-20.03-LTS-SP1, openEuler-20.03-LTS-SP2</code></p>
+</li>
+</ul>
+<h3 id="33-补丁的维护与生命周期">3.3 补丁的维护与生命周期</h3>
+<hr>
+<ol>
+<li>少数遇到以下情况，已经合入openEuler 内核的补丁或特性可能会被回退或删除：</li>
+</ol>
+<ul>
+<li>
+<p>发现 license 不合规，或代码来源不合规等问题</p>
+</li>
+<li>
+<p>有严重安全问题，经提醒，仍没有整改</p>
+</li>
+<li>
+<p>后续有补丁的新版本，或其他特性有冲突的，经决策后，可能会被替代或删除</p>
+</li>
+</ul>
+<ol start="2">
+<li>
+<p>内核升级大版本，如从 4.19 升级到 5.10，上游主线没有包含的补丁，需要原补丁开发团队重新分析合入。</p>
+</li>
+<li>
+<p>LTS 维护分支 （openEuler-xx.xx)，通常不直接接受补丁，只从开发主干（OLK-X.XX)回合的补丁。</p>
+</li>
+<li>
+<p>补丁只合入了创新版本，不一定能进入 LTS 版本和主干。并且，如果补丁要合入主干和LTS分支，需要重新适配发送补丁。</p>
+</li>
+</ol>
+<h2 id="4-流程要求">4 流程要求</h2>
+<hr>
+<ol>
+<li>新特性、新驱动、补丁集回合等，需要现在 <a href="https://bugzilla.openeuler.org/enter_bug.cgi">bugzilla</a> 上提交 request，对特性及改动做简单的介绍。</li>
+<li>明显的、少量的bugfix、独立的bugfix，可以在 bugzilla 上提交问题之后，描述补丁分析情况或验证情况，直接按前面要求发补丁。</li>
+</ol>
+
+		</div>
+		
+<h2 id="openeuler-kernel-sig-沟通交流渠道">openEuler Kernel SIG 沟通交流渠道</h2>
+<hr>
+<li>由于 openEuler Kernel SIG 官方群已经超过了 200 人, 无法通过扫描二维码加群, 为了方便大家及时加入 openEuler Kernel SIG 技术讨论群, 新建了一个名为 [&#43;]openEuler Kernel 技术交流 的中转群, 该群不讨论技术, 加入微信群后, 管理员会将大家拉入 openEuler Kernel SIG 官方群。请直接扫码加群，或者添加管理员账号直接加入技术群, 备注(SIG 加群-所在公司 or 学生-昵称)</a></li>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">微信群</th>
+<th style="text-align:center">管理员</th>
+<th style="text-align:center">公众号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:center"><img src="/kernel-portal/img/wechat/openEuler_kernel_SIG_wechat_TMP.png" alt="GROUP_CHAT"></td>
+  <td style="text-align:center"><img src="/kernel-portal/img/wechat/openEuler_gatieme_wechat.png" alt="GROUP_ADMIN"></td>
+  <td style="text-align:center"><img src="/kernel-portal/img/wechat/qrcode.png" alt="GROUP_WP"></td>
+</tr>
+</tbody>
+</table>
+
+
+		
+<div class="post-archive">
+    <ul class="post-copyright">
+        <li><strong>原文作者：</strong><a rel="author" href="https://openeuler.gitee.io/kernel-portal/">openEuler Kernel SIG</a></li>
+        <li style="word-break:break-all"><strong>原文链接：</strong><a href="https://openeuler.gitee.io/kernel-portal/post/2021/03/0001-openeuler_patch_format_specification/">https://openeuler.gitee.io/kernel-portal/post/2021/03/0001-openeuler_patch_format_specification/</a></li>
+        <li><strong>版权声明：</strong>本作品采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可，非商业转载请注明出处（作者，原文链接），商业转载请联系作者获得授权。</li>
+    </ul>
+</div>
+<br/>
+
+
+		
+<div class="post__tags tags clearfix">
+	<svg class="icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item"><a class="tags__link btn" href="/kernel-portal/tags/openeuler/" rel="tag">openEuler</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/kernel-portal/tags/document/" rel="tag">Document</a></li>
+	</ul>
+</div>
+	</article>
+</main>
+<div class="social-share"></div>
+  <br/>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="openEuler Kernel SIG avatar" src="/kernel-portal/img/avatar.png" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name"></span>
+	</div>
+	<div class="authorbox__description">
+		最具活力的 Linux 内核开发社区
+	</div>
+</div>
+
+
+
+<aside class="sidebar">
+<h4>相关文章</h4>
+<div class="widget__content">
+		<ul class="widget__list">
+	
+	<li><a href="/kernel-portal/post/2021/03/0002-contributions_to_openeuler_kernel_project/">如何参与 openEuler linux 内核开发</a></li>
+	
+</ul>
+</div>
+<br/>
+</aside>
+
+
+<nav class="post-nav flex">
+	<div class="post-nav__item post-nav__item--prev">
+		<a class="post-nav__link" href="/kernel-portal/archives/" rel="prev"><span class="post-nav__caption">«&thinsp;前一篇</span><p class="post-nav__post-title">文章归档</p></a>
+	</div>
+	<div class="post-nav__item post-nav__item--next">
+		<a class="post-nav__link" href="/kernel-portal/post/2021/03/0002-contributions_to_openeuler_kernel_project/" rel="next"><span class="post-nav__caption">后一篇&thinsp;»</span><p class="post-nav__post-title">如何参与 openEuler linux 内核开发</p></a>
+	</div>
+</nav>
+
+
+
+<script data-isso="/isso/" src="/isso/js/embed.min.js"></script>
+<section id="isso-thread"></section>
+
+
+			</div>
+			<aside class="sidebar"><div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<label>
+			<input class="widget-search__field" type="search" placeholder="搜索..." value="" name="q" aria-label="搜索...">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="https://openeuler.gitee.io/kernel-portal/" />
+	</form>
+</div>
+<div class="widget-recent widget">
+	<h4 class="widget__title">近期文章</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/kernel-portal/post/2021/03/0002-contributions_to_openeuler_kernel_project/">如何参与 openEuler linux 内核开发</a></li>
+			<li class="widget__item"><a class="widget__link" href="/kernel-portal/post/2021/03/0001-openeuler_patch_format_specification/">openEuler kernel 补丁合入规范</a></li>
+			<li class="widget__item"><a class="widget__link" href="/kernel-portal/archives/">文章归档</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">标签</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/kernel-portal/tags/document" title="Document">Document (2)</a>
+		<a class="widget-taglist__link widget__link btn" href="/kernel-portal/tags/openeuler" title="Openeuler">Openeuler (2)</a>
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2021 openEuler Kernel SIG.
+			<span class="footer__copyright-credits">使用 <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> 技术与 <a href="https://github.com/kingfsen/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a>主题</span>
+      <br>
+      <span id="busuanzi_container_site_pv">本站访问量：<span id="busuanzi_value_site_pv"></span>次</span>
+      &nbsp;
+      <span id="busuanzi_container_site_uv">您是本站第 <span id="busuanzi_value_site_uv"></span> 位访问者</span>
+		</div>
+	</div>
+</footer>
+
+	</div>
+<script async defer src="/kernel-portal/js/menu.js"></script>
+<script async src="/kernel-portal/js/highlight.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+ 
+  <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https'){
+   bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+  bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+ 
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?1f38fa809";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<script type="text/javascript">
+    (function(){
+        $("pre code").parent().addClass("line-numbers")
+    }())
+</script>
+
+</body>
+</html>

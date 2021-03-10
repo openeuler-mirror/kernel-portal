@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on openEuler Kernel SIG</title>
+    <link>https://openeuler.gitee.io/kernel-portal/tags/</link>
+    <description>Recent content in Tags on openEuler Kernel SIG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 04 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://openeuler.gitee.io/kernel-portal/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Document</title>
+      <link>https://openeuler.gitee.io/kernel-portal/tags/document/</link>
+      <pubDate>Thu, 04 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://openeuler.gitee.io/kernel-portal/tags/document/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>openEuler</title>
+      <link>https://openeuler.gitee.io/kernel-portal/tags/openeuler/</link>
+      <pubDate>Thu, 04 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://openeuler.gitee.io/kernel-portal/tags/openeuler/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

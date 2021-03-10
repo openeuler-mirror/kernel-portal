@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>开发指南 on openEuler Kernel SIG</title>
+    <link>https://openeuler.gitee.io/kernel-portal/categories/%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</link>
+    <description>Recent content in 开发指南 on openEuler Kernel SIG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 04 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://openeuler.gitee.io/kernel-portal/categories/%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何参与 openEuler linux 内核开发</title>
+      <link>https://openeuler.gitee.io/kernel-portal/post/2021/03/0002-contributions_to_openeuler_kernel_project/</link>
+      <pubDate>Thu, 04 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://openeuler.gitee.io/kernel-portal/post/2021/03/0002-contributions_to_openeuler_kernel_project/</guid>
+      <description>通过参与 openEuler Kernel 社区可以跟内核大牛讨论技术, 解决问题, 畅所欲言. 很多小伙伴都有想法, 但是之前一直不知道怎么入手, 本文就作为 openEuler Kernel SIG 的开篇之作, 旨在为大家提供一个参与 openEuler Kernel 开发的最基础的指导.</description>
+    </item>
+    
+    <item>
+      <title>openEuler kernel 补丁合入规范</title>
+      <link>https://openeuler.gitee.io/kernel-portal/post/2021/03/0001-openeuler_patch_format_specification/</link>
+      <pubDate>Mon, 01 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://openeuler.gitee.io/kernel-portal/post/2021/03/0001-openeuler_patch_format_specification/</guid>
+      <description>openEuler kernel 为了内核版本质量，在尽可能方便大家参与社区的前提下，加强了对合入补丁的管控，保证补丁安全、可信、可追溯，因此对 openEuler Kernel 合入补丁的方式和格式都做了一些约束和建议，本规范旨在为大家合入补丁提供必要的指导。</description>
+    </item>
+    
+  </channel>
+</rss>
