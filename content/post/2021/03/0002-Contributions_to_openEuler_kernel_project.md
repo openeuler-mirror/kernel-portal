@@ -30,27 +30,34 @@ widgets: # Enable sidebar widgets in given order per page
 
 openEuler 内核开发跟 linux 主线一样, 采用社区协作的方式, 我们发送补丁、咨询问题都是通过邮件进行交流的, 因此我们进行内核开发的标准流程和主线内核的开发流程是一样的.
 
-1.	首先你需要配置好你的 git, 而且要能正常使用 git 发送补丁
+1.	首先你需要配置好你的 git, 而且要能正常使用 git 发送补丁;
 
-2.	下载 openEuler 内核源代码
+2.	下载 openEuler 内核源代码;
 
-3.	提交、验证 你的补丁.
+3.	提交、验证你的补丁;
 
-4.	补丁验证完成后, 发往 openEuler 邮件列表, 等待 Maintainer 回复.
+4.	补丁验证完成后, 发往 openEuler 邮件列表, 等待 Maintainer 回复;
 
-5.	参与讨论, 与 Maintainer 和其他开发者充分沟通. 如果大家有意见修改你的补丁重复步骤 2.
+5.	参与讨论, 与 Maintainer 和其他开发者充分沟通. 如果大家有意见修改你的补丁重复步骤 3;
 
-6.	你的补丁经过充分的讨论和验证后, 得到了大牛和 Maintainer 的认可, 通过了门禁和测试用例的各项考研, 最终合入内核仓库
+6.	你的补丁经过充分的讨论和验证后, 得到了大牛和 Maintainer 的认可, 通过了门禁和测试用例的各项考验, 最终合入内核仓库.
 
 
-当前版本 v1.2 @ 2021-03-04
+当前版本 v1.3 @ 2021-03-15
 
 | 版本 | 更新日期 | 作者 | 更新日志 |
 |:----:|:--------:|:----:|:--------:|
 | v0.9 | 2021/03/01 | 汪雄峰 | 完成 v0.9 版本						|
 | v1.0 | 2021/03/01 | 成坚   | 完成了内容, 并将格式修改为 MARKDOWN			|
 | v1.1 | 2021/03/03 | 汪雄峰 | 完善了 issue 提交帮助					|
-| v1.2 | 2021/03/04 | 成坚   | 完善了 沟通交流渠道一节的内容，添加技术讨论群添加渠道	|
+| v1.2 | 2021/03/04 | 成坚   | 完善了沟通交流渠道一节的内容，添加技术讨论群添加渠道	|
+| v1.3 | 2021/03/15 | 成坚   | 根据检视同学的进行, 进行了认真的修改 |
+
+感谢 [张文博](https://github.com/ethercflow), [张明](https://github.com/zhangming-cloud) 两位同学对文档的检视. 针对大家的意见进行了修改, 感谢. 其中
+
+* [张文博](https://github.com/ethercflow)同学, 检视的非常仔细, 发现了很多问题.
+
+* [张明](https://github.com/zhangming-cloud)同学, 除了检视发现了不少问题, 还按照文档描述的流程, 进行了验证操作.
 
 
 ## 1 环境准备与配置
@@ -95,7 +102,7 @@ git config --global user.email "zhangsan@163.com"
 
 待你提交补丁合入后, 你的大名将显示在 git 的 log 中.
 
-另外 git 默认配置的编辑器为 `EMACAS`, 如果你更习惯用 `VIM`, 可以通过如下命令设置 GIT 默认编辑器.
+另外 git 默认配置的编辑器为 `EMACS`, 如果你更习惯用 `VIM`, 可以通过如下命令设置 GIT 默认编辑器.
 
 ```
 git config --global core.editor vim
@@ -118,16 +125,16 @@ sudo yum install git-email
 ```
 
 > 注意:
-> send-email 并不是 git 的必备组件, 你可以使用 "git send-email" 确认一下
-> 如果正确显示了 send-email 的 help 信息, 那么send-email已经安装再你的系统了
-> 否则如果显示结果类似于下面
+> send-email 并不是 git 的必备组件, 你可以使用 "git send-email" 确认一下.
+> 如果正确显示了 send-email 的 help 信息, 那么 send-email 已经安装在你的系统了.
+> 否则如果显示结果类似于下面:
 > ```
 > # git send-email
 >
 > git: 'send-email' is not a git command. See 'git --help'.
 > ```
 >
-> 你需要安装send-email命令.你的版本可能有一个send-email的安装包.
+> 你需要安装 send-email 命令.你的版本可能有一个 send-email 的安装包.
 > 一般来说这个包的名字都是 "git-email", 当前不同发行版可能会有差异.
 
 
@@ -154,7 +161,7 @@ sudo yum install git-email
 ```
 
 
-附常用邮箱的 POP/SMTP 服务.
+附常用邮箱的 `POP/SMTP` 服务.
 
 | 邮箱服务商 |  POP3 服务 | SMTP 服务 |
 |:--------:|:------------:|:------------:|
@@ -181,7 +188,7 @@ git send-email -to zhangsan@163.com ./xxxx.patch
 ## 2 补丁制作与提交
 -------
 
-### 2.1 修改内核代码解决bug并提交
+### 2.1 修改内核代码解决 bug 并提交
 -------
 
 这个过程我们不详细描述了, 大家把问题解决掉之后, 提交到本地, 然后验证, 待测试验证完成之后, 就可以把自己提交的修改制作成补丁然后进行提交.
@@ -189,20 +196,18 @@ git send-email -to zhangsan@163.com ./xxxx.patch
 ### 2.2 补丁描述
 -------
 
-
-
 #### 2.2.1 补丁基本格式
 -------
 
 ![补丁的基本格式](/kernel-portal/img/2021/03/0002-0005-patch_format.png)
 
-commit 信息如下图所示，包括下面4部分内容 :
+`commit` 信息如下图所示, 包括下面 4 部分内容 :
 
 | 格式  | 描述 | 是否 openEuler 独有 |
 |:----:|:----:|:-------------:|
 | 标题 |  简要描述这个提交完成了什么功能或修复了什么问题 | N |
-| commit头 | 补丁头是 openEuler 追溯补丁来源和功能的手段 | Y |
-| commit内容 | 具体描述这个 commit 为什么有必要做, 怎么修改的, 有没有其他要注意的等等  | N |
+| commit 头 | 补丁头是 openEuler 追溯补丁来源和功能的手段 | Y |
+| commit 内容 | 具体描述这个 commit 为什么有必要做, 怎么修改的, 有没有其他要注意的等等  | N |
 | 引用 or 修复 | 非必须, 主要是改补丁引用的内容, 如果是个修复补丁, 那么列出来你修复的问题是哪个补丁引入的 | N |
 | 签名 | 包含了 Signed-off-by/Reviewed-by/Suggested-by/Reported-by/Tested-by 等等信息 | N |
 
@@ -211,13 +216,13 @@ commit 信息如下图所示，包括下面4部分内容 :
 | 签名 | 描述 |
 |:---:|:----:|
 | Signed-off-by | 这个是我们最常使用的签名戳, 它包含了很多的含义, 表明你是这个补丁的作者或者你对这个修改进行了同步, 正常来说, 一些主线的补丁我们回合后, 要在最后面带上我们自己的签名, 表明这个补丁是你审视了作者的修改之后, 重新发布的. 的需要注意的是, 最后一个 Signed-off-by 必须是提交补丁的开发人员.  |
-| Reviewed-by | openEuler 各个模块的 Commiter/Maintainer 对你的补丁进行 review 完成之后, 就会签上这个戳, 表明他们认可了你的修改, 只有看到了这个戳, Commiter 才有可能将此补丁合入 |
-| Reported-by | 一般用于别的小伙伴发现的 BUG 或者问题等, 当其他兄弟完成修复后, 处于对上报问题的兄弟工作的认可, 带上这个戳把补丁发出来. 毕竟发现问题也是需要花费时间的, 大家可能解决起来比较棘手的问题, 都可以发出来让大家一起讨论和修复, 修复问题的时候带上上报人的戳, 即是对其辛勤功劳的肯定, 也是一种荣誉和认可. 毕竟只有多多的发现问题, openEuler 才能不断发展和壮大. 所以也希望大家发现问题多发出来讨论, 多上报. 如果你发现的问题被其他兄弟修复之后, 没有带你 Reported-by, 你可可以直接指出, 辛勤的劳动值得获得的认可. |
+| Reviewed-by | openEuler 各个模块的 Commiter/Maintainer 对你的补丁进行 review 完成之后, 就会签上这个戳, 表明他们认可了你的修改, 只有看到了这个戳, Commiter/Maintainer 才有可能将此补丁合入 |
+| Reported-by | 一般用于别的小伙伴发现的 BUG 或者问题等, 当其他兄弟完成修复后, 出于对上报问题的兄弟工作的认可, 带上这个戳把补丁发出来. 毕竟发现问题也是需要花费时间的, 大家可能解决起来比较棘手的问题, 都可以发出来让大家一起讨论和修复, 修复问题的时候带上上报人的戳, 即是对其辛勤功劳的肯定, 也是一种荣誉和认可. 毕竟只有多多的发现问题, openEuler 才能不断发展和壮大. 所以也希望大家发现问题多发出来讨论, 多上报. 如果你发现的问题被其他兄弟修复之后, 没有带你 Reported-by, 你可可以直接指出, 辛勤的劳动值得获得的认可. |
 | Suggested-by | 表明这个修改思路是这位兄弟提出的, 但是是你实现的. 同样提出解决问题的方法, 也是要付出的, 理所应当获得认可 |
-| Tested-by | 表明这个补丁被这位兄弟测试过了, 没有问题. 一些修复补丁或者特性补丁, 如果你比较感兴趣, 欢迎大家多多测试, 测试完成后, 恢复邮件, 签上这个戳. Commiter 在提交的时候就会把的戳带上 |
+| Tested-by | 表明这个补丁被这位兄弟测试过了, 没有问题. 一些修复补丁或者特性补丁, 如果你比较感兴趣, 欢迎大家多多测试, 测试完成后, 恢复邮件, 签上这个戳. Commiter/Maintainer 在提交的时候就会把的戳带上 |
 | Co-developed-by | 协同开发, 表明这个补丁是由多个兄弟共同开发的. 他的身份是等同于作者的, 一般来说 PATCH 邮件的 From 字段在提交之后, 会默认作为 Author, 但是如果你希望表明其他人也参与了开发, 请使用此签名. |
 
-关于 签名 的详细信息, 可以参考内核文档 [Documentation/process/submitting-patches.rst](https://gitee.com/openeuler/kernel/blob/kernel-4.19/Documentation/process/submitting-patches.rst) 或者[主线内核手册](https://www.kernel.org/doc/html/latest/process/submitting-patches.html).
+关于**签名**的详细信息, 可以参考内核文档 [Documentation/process/submitting-patches.rst](https://gitee.com/openeuler/kernel/blob/kernel-4.19/Documentation/process/submitting-patches.rst) 或者[主线内核手册](https://www.kernel.org/doc/html/latest/process/submitting-patches.html).
 
 
 
@@ -228,13 +233,13 @@ commit 信息如下图所示，包括下面4部分内容 :
 #### 2.2.2 openEuler 补丁格式要求
 -------
 
-openEuler 的补丁格式沿用了社区的格式, 但是为了 openEuler Kernel 为了对补丁和问题的来源和定位信息进行跟踪, 因此在补丁的 `commit message` 之前要求大家添加一些补丁头.
+openEuler 的补丁格式沿用了社区的格式, 但是 openEuler Kernel 为了对补丁和问题的来源和定位信息进行跟踪, 因此在补丁的 `commit message` 之前要求大家添加一些补丁头.
 
 | 字段 | 描述 |
 |:---:|:---:|
 | XXX inclusion | 表明这个补丁是哪个组织或者机构提交的或有谁维护, 如果是主线补丁请填 mainline, 如果是 LTS 补丁, 请填写 stable, 自研补丁填写对应机构的的缩写 |
 | category | 表明这个补丁的类别, 一般如下字段可选 : bugfix/performance/feature/doc |
-| bugzilla | 用于跟踪此问题的详细信息和定位日志, 通过关联网站查阅此信息, 可以清楚的该补丁修改的问题或者特性完成的工作, 以及需求来源等等信息.<br>所有你关于此补丁想知道的可能都在这里, 一般 bugziila 号或者 issue 号任选其一或者其二<br>bugzilla 字段填写 bugzilla 号或者 issue 号即可, 不需要填全部 URL 链接, bugzilla 和 issue 的网站是固定的, 有编号就可以查询到. |
+| bugzilla | 用于跟踪此问题的详细信息和定位日志, 通过关联网站查阅此信息, 可以清楚的了解该补丁修改的问题, 或者该特性所完成的工作, 以及需求来源等信息.<br>所有你关于此补丁想知道的可能都在这里, 一般 bugziila 号或者 issue 号任选其一或者其二<br>bugzilla 字段填写 bugzilla 号或者 issue 号即可, 不需要填全部 URL 链接, bugzilla 和 issue 的网站是固定的, 有编号就可以查询到. |
 | CVE | 如果当前补丁是 CVE 修复补丁, 则必须填写, 否则请填 NA |
 
 
@@ -242,26 +247,26 @@ openEuler 的补丁格式沿用了社区的格式, 但是为了 openEuler Kernel
 自研特性, 请使用此格式提交
 
 ```
-    hulk inclusion
-    category: bugfix
-    bugzilla: 34278
-    CVE: NA
+hulk inclusion
+category: bugfix
+bugzilla: https://gitee.com/openeuler/kernel/issues/I3916O
+CVE: NA
 ```
 
 主线补丁, 请使用此格式提交.
 
 
 ```
-    mainline inclusion
-    from mainline-v5.5-rc1
-    commit f1a54ae9af0da4d76239256ed640a93ab3aadac0
-    category: bugfix
-    bugzilla: 25285
-    CVE: NA
+mainline inclusion
+from mainline-v5.2-rc1
+commit 898490c010b5d2e499e03b7e815fc214209ac583
+category: bugfix
+bugzilla: https://gitee.com/openeuler/kernel/issues/I390TB
+CVE: NA
 ```
 
 
-关于补丁头的更详细信息, 请参照 [openEuler Kernel 补丁合入规范](), 信息如有出入, 以合入规范为准.
+关于补丁头的更详细信息, 请参照 [openEuler Kernel 补丁合入规范](https://openeuler.gitee.io/kernel-portal/post/2021/03/0001-openeuler_patch_format_specification), 信息如有出入, 以合入规范为准.
 
 
 ### 2.3 补丁制作
@@ -277,7 +282,7 @@ openEuler 的补丁格式沿用了社区的格式, 但是为了 openEuler Kernel
 
 | 参数 | 描述 |
 |:---:|:----:|
-| -s/--SIGnoff | 添加自己的 Signed-off-by 戳, 自己提交的补丁, 不管是不是自己自研的, 都是要带上自己的签名的, 使用 -s 自动在 patch 最后添加自己的签名 |
+| -s/--signoff | 添加自己的 Signed-off-by 戳, 自己提交的补丁, 不管是不是自己自研的, 都是要带上自己的签名的, 使用 -s 自动在 patch 最后添加自己的签名 |
 | --subject-prefix "PATCH openEuler-1.0-LTS" | 为补丁添加前缀, 我们的补丁必须显式告诉 Commiter/Reviewer/Maintainer 们, 补丁是为哪个版本或者分支提供的 |
 | -N | 将前 N 补丁生成 PATCH 文件, 比如 -65 将生成 65 个 PATCH, 我们可以指定开始生成的位置, 指定 tag/commitid 等都可以 |
 | -o XXXX | 将 PATCH 生成到 XXXX 目录下 |
@@ -336,10 +341,44 @@ git format-patch -s --cover-letter --subject-prefix "PATCH v3 openEuler-1.0-LTS"
 
 一组 patchset 的时候, 一般我们把 Change Log 写到封面补丁中, 在补丁集描述之后, 就填写 Change Log 信息. 由于这个补丁不会出现在 git log 中, 自然也不用担心 Change Log 出现在版本的 git log 中. 我们以内核主线社区 patchwork 中的 patchset 举例, [参见](https://lore.kernel.org/patchwork/cover/1340764)
 
-对于单个 patch, 如果 Change Log 直接写到 commit message 后面, apply 之后就会体现在 git log 中, 这自然不是我们想要的. 此时 git 为我们提供了一种更简单的方式. 在最后一个 Signed-off-by 之后, git 打印了几个短杠 "---", 在这几个短杠之前, 修改文件列表之前, 我们可以在这里畅所欲言, 而不会体现在 git log 中. 这里也是我们可以填写 Change Log 的地方. 同样以主线 patchwork 中的 patch 为例, [参见](https://lore.kernel.org/patchwork/patch/1328176/)
+对于单个 patch, 如果 Change Log 直接写到 commit message 后面, apply 之后就会体现在 git log 中, 这自然不是我们想要的. 此时 git 为我们提供了一种更简单的方式. 在最后一个 Signed-off-by 之后, git 打印了几个短杠 "---", 在这几个短杠之后, 修改文件列表之前, 我们可以在这里畅所欲言, 而不会体现在 git log 中. 这里也是我们可以填写 Change Log 的地方. 同样以主线 patchwork 中的 patch 为例, [参见](https://lore.kernel.org/patchwork/patch/1328176/)
+
+#### 2.3.3 checkpatch 检查
+-------
+
+内核提供了 [`scripts/checkpatch.pl`](https://gitee.com/openeuler/kernel/blob/kernel-4.19/scripts/checkpatch.pl) 脚本用来对代码进行静态扫描, 主要用来识别一些不规范的编码.
+
+*   使用 `script/checkpatch.pl XXXX.patch` 对生成的单个 patch 进行检查.
+
+![检查单个 patch](/kernel-portal/img/2021/03/0002-0010-checkpatch_patch.png)
+
+> 注意
+> 检查出的部分内容是由于我们追加的补丁头等信息报错的, 这部分内容不用修改
+> 比如上面检查出的如下错误:
+>
+> ```
+> ERROR: Please use git commit description style 'commit <12+ chars of sha1> ("<title line>")' - ie: 'commit fatal: bad o ("778836857adfba3f8")'
+> #8: 
+> commit 1a999d25ef536a14f6a7c25778836857adfba3f8
+>
+> ERROR: Please use git commit description style 'commit <12+ chars of sha1> ("<title line>")' - ie: 'commit fatal: bad o ("7a702e7819e62f04e")'
+> #13: 
+> commit 8310b77b48c5558c140e7a57a702e7819e62f04e upstream.
+> ```
+>
+> 这些问题都是由于内核编码规范中要求内核 commit 按照固定的格式描述, 但是我们的补丁头明显不符合这些格式.
+> 这类问题我们忽略就好了.
+
+*   也可以加上 `-f` 选项, 直接对文件进行检查. 这样在编码过程中, 就可以直接边检查边改了, 再检查完事后, 再生成 patch.
+
+![检查单个文件](/kernel-portal/img/2021/03/0002-0011-checkpatch_file.png)
+
+除了一些补丁头等引入的问题不需要修改, 其他问题按照要求提示修改即可.
+
+关于内核编码规范, 可以参考 [`Documentation/process/coding-style.rst`](https://gitee.com/openeuler/kernel/blob/kernel-4.19/Documentation/process/coding-style.rst), 或者中文版 [Linux 内核代码风格](https://gitee.com/openeuler/kernel/blob/kernel-4.19/Documentation/translations/zh_CN/coding-style.rst).
 
 
-#### 2.3.3 发送补丁到 openEuler linux 内核社区
+#### 2.3.4 发送补丁到 openEuler linux 内核社区
 -------
 
 使用git send-email 发送邮件到openEuler社区的邮件列表 kernel@openeuler.org. 发送邮件时可以CC自己的邮箱，这样自己可以看到发出来的邮件是什么样子.发送到邮件列表的邮件会被订阅该邮件列表的所有人收到，包括维护该模块的maintainer，maintainer如果认为补丁没问题就会回复Reviewed-by，补丁会在后续合入openEuler.
