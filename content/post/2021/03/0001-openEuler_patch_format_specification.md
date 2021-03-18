@@ -28,6 +28,10 @@ widgets: # Enable sidebar widgets in given order per page
 
 ---
 
+| kernel-portal | openEuler 公众号 |
+|:-------------:|:----------------:|
+| [openEuler kernel 补丁合入规范](https://openeuler.gitee.io/kernel-portal/post/2021/03/0001-openeuler_patch_format_specification) | [公众号推文](https://mp.weixin.qq.com/s/rSH79v7btJfsdivC2mki1w) |
+
 
 阅读本规范之前，请先了解 [openEuler 内核的分支管理](https://gitee.com/openeuler/community/tree/master/sig/Kernel#kernel-的分支)。
 
