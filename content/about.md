@@ -40,16 +40,15 @@ openEuler 的愿景是：走进千行百业，千家万户。
 
 | 微信群 | 管理员 | 公众号 |
 |:------:|:------:|:------:|
-| ![openEuler Kernel SIG 技术交流群](/kernel-portal/img/wechat/openEuler_kernel_SIG_wechat_TMP.png) | ![openEuler-成坚](/kernel-portal/img/wechat/openEuler_gatieme_wechat.png) | ![公众号](/kernel-portal/img/wechat/qrcode.png) |
+| ![openEuler Kernel SIG 技术交流群](/kernel-portal/img/wechat/openEuler_kernel_SIG_wechat_TMP.png) | ![openEuler-成坚](/kernel-portal/img/wechat/openEuler_kernel_helper_wechat.png) | ![公众号](/kernel-portal/img/wechat/qrcode.png) |
 
 大家加入 openEuler KerneL SIG 交流群之后，建议大家修改群备注为 所在公司 or 学校-昵称/真实姓名-研究反向/感兴趣方向。
 由于公司以及真实姓名涉及隐私信息，因此不强制要求备注。
 研究方向和感兴趣方向用于管理员识别大家的知识体系和兴趣方向，方便后期安排一些技术课题让大家参与。
 
 > 或搜索添加如下任何一个微信号可以进入 kernel SIG 微信群：
->  群主: rousya
->  群管理员: gatieme
-> 请备注: SIG 加群。
+>  群管理员: openeuler-kernel
+> 请备注: SIG 交流群。
 >
 > 建群不易, 请不要在群里涉及敏感话题, 不胜感激
 >
