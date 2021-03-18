@@ -41,13 +41,13 @@ widgets: # Enable sidebar widgets in given order per page
 | v1.1 | 2021/03/01 | 谢秀奇 | 精简了内容, 去掉了冗余的描述和流程, 使流程尽可能精简 |
 | v1.2 | 2021/03/15 | 成坚   | 根据检视同学的进行, 进行了认真的修改 |
 
-感谢 [张文博](https://github.com/ethercflow), [张明](https://github.com/zhangming-cloud) 两位同学对文档的检视. 针对大家的意见进行了修改, 感谢.
+感谢 [张文博](https://github.com/ethercflow), [张明](https://github.com/zhangming-cloud) 两位同学对文档的检视. 针对大家的意见进行了修改, 感谢。
 
 
 ## 1 目的
 -------
 
-为规范和统一 openEuler 内核补丁的提交流程、方式、格式，方便对补丁/特性的分类、识别、统计、追溯以及移植，特制定openEuler kernel 补丁合入规范（以下简称“本规范”）。
+为规范和统一 openEuler kernel 补丁的提交流程、方式、格式，方便对补丁/特性的分类、识别、统计、追溯以及移植，特制定openEuler kernel 补丁合入规范（以下简称“本规范”）。
 
 ## 2 适用范围
 -------
@@ -70,9 +70,9 @@ openEuler 的目标是：
 
 * 维护安全稳定可靠的、性能领先、生态丰富的的稳定内核，方便产业界快速应用
 
-因此，满足这个原则的补丁或特性都可以提交给 openEuler 内核。
+因此，满足这个原则的补丁或特性都可以提交给 openEuler kernel。
 
-### 3.1 贡献openEuler社区之前需要签署贡献者协议 （CLA)
+### 3.1 贡献 openEuler 社区之前需要签署贡献者协议 （CLA)
 -------
 
 https://openeuler.org/zh/community/contribution/
@@ -94,7 +94,9 @@ https://openeuler.org/zh/community/contribution/
 
 原则6：补丁应有标识，能区分是发给哪个版本/分支的补丁
 
-
+> 关于内核编码规范，可以参考
+> 英文版：[`Documentation/process/coding-style.rst`](https://gitee.com/openeuler/kernel/blob/kernel-4.19/Documentation/process/coding-style.rst)，
+> 中文版：[Linux 内核代码风格](https://gitee.com/openeuler/kernel/blob/kernel-4.19/Documentation/translations/zh_CN/coding-style.rst)。
 
 【规则】
 
@@ -106,14 +108,13 @@ https://openeuler.org/zh/community/contribution/
 
 ```[PATCH OLK-5.10 v2]```
 
-规则3：补丁需要有来源标识，比如 mainline inclusion, stable inclusion，dist inclusion 等。下表给出分类建议，不在列表中的，可以自行选择一个有辨识度的标识，或者使用 openEuler inclusion.
+规则3：补丁需要有来源标识，比如 mainline inclusion, stable inclusion，dist inclusion 等。下表给出分类建议，不在列表中的，可以自行选择一个有辨识度的标识，或者使用 openEuler inclusion。
 
 | 来源标识              | 说明                                |
 | --------------------- | ----------------------------------- |
 | mainline inclusion    | 主线 backport                       |
 | stable inclusion      | 上游 stable 分支的补丁              |
 | maillist inclusion    | 发到社区，但是还没进主线的补丁      |
-| hulk inclusion        | openEuler kernel 团队开发的补丁     |
 | virt inclusion        | 虚拟化相关的补丁                    |
 | ascend inclusion      | 昇腾相关的补丁或特性                |
 | kunpeng inclusion     | 鲲鹏相关的补丁或特性                |
@@ -121,35 +122,37 @@ https://openeuler.org/zh/community/contribution/
 | raspberrypi inclusion | 树莓派相关的补丁合入                |
 | openEuler inclusion   | 其他发送到 openEuler 社区的非上游补丁 |
 
-规则4: 补丁应有分类标识，一般分为 bugfix，performance，feature，doc.
+规则4: 补丁应有分类标识，一般分为 bugfix，performance，feature，doc。如：
 
-规则5：如果补丁来说上游主线社区，需要指定来自主线哪个版本，如
+```category: bugfix```
+
+规则5：如果补丁来自上游主线社区，需要指定来自主线哪个版本，如：
 
 ```from mainline-5.11```
 
-规则6：如果补丁来自上游 stable 分支，需要指定来自 stable 哪个版本，如
+规则6：如果补丁来自上游 stable 分支，需要指定来自 stable 哪个版本，如：
 
 ```from stable-5.10.18```
 
-规则7：如果补丁来自上游社区，主线或 stable 分支，需要指定补丁的 commit id，如
+规则7：如果补丁来自上游社区，主线或 stable 分支，需要指定补丁的 commit id，如：
 
 ```commit 0becc0ae5b42828785b589f686725ff5bc3b9b25```
 
-规则8：每个补丁或补丁集需要指定 bugzilla 链接，用例说明该补丁解决了什么问题，或新增了什么特性。如果是一个特性补丁集，或回合 stable 的补丁，可以使用相同的bugzilla链接标识一组补丁集。如
+规则8：每个补丁或补丁集需要指定 bugzilla 链接，用例说明该补丁解决了什么问题，或新增了什么特性。如果是一个特性补丁集，或回合 stable 的补丁，可以使用相同的bugzilla链接标识一组补丁集。如：
 
 ```bugzilla: https://bugzilla.openeuler.org/show_bug.cgi?id=6```
 
-规则9：补丁需要有分类标识，如 category: bugfix, category: feature 等
+规则9：如果补丁是 CVE 的修复补丁，需要指定 CVE 编号， 如：
 
-规则10：如果补丁是 CVE 的修复补丁，需要指定 CVE 编号， 如 CVE: CVE: CVE-2020-36158
+```CVE: CVE-2020-36158```
 
-规则11：如果补丁是来自内核社区还没进主线的补丁，需要给出补丁或补丁集链接，如：
+规则10：如果补丁是来自内核社区还没进主线的补丁，需要给出补丁或补丁集链接，如：
 
 ```Reference: https://lwn.net/Articles/839107/```
 
-建议12：回合社区 Bugfix 补丁时，可以在原补丁 commit message 之前，增加额外的描述，一般能更好的帮助其他人理解为什么需要合入该补丁。
+建议11：回合社区 Bugfix 补丁时，可以在原补丁 commit message 之前，增加额外的描述，一般能更好的帮助其他人理解为什么需要合入该补丁。
 
-规则13：回合社区补丁时，commit message 中新增的部分，与原始部分，需要有分割线，如
+规则12：回合社区补丁时，commit message 中新增的部分，与原始部分，需要有分割线，如：
 
 ```mainline inclusion      [M]
 from $mainline-version
@@ -167,7 +170,7 @@ original changelog
 Signed-off-by: $yourname <$yourname@huawei.com>   [M]
 ```
 
-规则14: 不论是自己开发的补丁，还是从社区回合的补丁，还是帮团队其他人员转发的补丁，都需要增加自己的签名。下面说明摘自内核补丁提交说明（文档位置：Documentation/process/submitting-patches.rst）。
+规则13: 不论是自己开发的补丁，还是从社区回合的补丁，还是帮团队其他人员转发的补丁，都需要增加自己的签名。下面说明摘自内核补丁提交说明（文档位置：Documentation/process/submitting-patches.rst）。
 
 ```
 Sign your work - the Developer’s Certificate of Origin
@@ -212,9 +215,9 @@ Sign your work - the Developer’s Certificate of Origin
    using your real name (sorry, no pseudonyms or anonymous contributions.)
 ```
 
-规则15: 自己开发的补丁，需要经过 ./scripts/checkpatch.pl 工具检查，不能有 Error 项。
+规则14: 自己开发的补丁，需要经过 ./scripts/checkpatch.pl 工具检查，不能有 Error 项。
 
-建议16: 你可以在补丁的 commit message 中标记补丁要回合到的维护分支，如果补丁没有冲突，maintainer 会自动将其合到对应的分支。
+建议15: 你可以在补丁的 commit message 中标记补丁要回合到的维护分支，如果补丁没有冲突，maintainer 会自动将其合到对应的分支。
 
   * 例如，下面这一行信息，表示该补丁需要回合到 openEuler-20.03-LTS-SP1，openEuler-20.03-LTS-SP2两个分支中。
 
@@ -223,7 +226,7 @@ Sign your work - the Developer’s Certificate of Origin
 ### 3.3 补丁的维护与生命周期
 -------
 
-1. 少数遇到以下情况，已经合入openEuler 内核的补丁或特性可能会被回退或删除：
+1. 少数遇到以下情况，已经合入 openEuler kernel 的补丁或特性可能会被回退或删除：
 
   * 发现 license 不合规，或代码来源不合规等问题
 
@@ -233,12 +236,13 @@ Sign your work - the Developer’s Certificate of Origin
 
 2. 内核升级大版本，如从 4.19 升级到 5.10，上游主线没有包含的补丁，需要原补丁开发团队重新分析合入。
 
-3. LTS 维护分支 (openEuler-xx.xx)，通常不直接接受补丁，只从开发主干（OLK-X.XX)回合的补丁。
+3. LTS 维护分支 (openEuler-xx.xx)，通常不直接接受补丁，只从开发主干（OLK-X.XX）回合补丁。
 
-4. 补丁只合入了创新版本，不一定能进入 LTS 版本和主干。并且，如果补丁要合入主干和LTS分支，需要重新适配发送补丁。
+4. 补丁只合入了创新版本，不一定能进入主干分支和 LTS 分支。并且，如果补丁要合入主干分支和 LTS 分支，需要重新适配发送补丁。
 
 ## 4 流程要求
 -------
 
-1.  新特性、新驱动、补丁集回合等，需要现在 [bugzilla](https://bugzilla.openeuler.org/enter_bug.cgi) 上提交 request，对特性及改动做简单的介绍。
+1.  新特性、新驱动、补丁集回合等，需要先在 [bugzilla](https://bugzilla.openeuler.org/enter_bug.cgi) 上提交 request，对特性及改动做简单的介绍。
+
 2.  明显的、少量的 bugfix、独立的 bugfix，可以在 bugzilla 上提交问题之后，描述补丁分析情况或验证情况，直接按前面要求发补丁。
