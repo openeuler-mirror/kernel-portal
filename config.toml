@@ -109,5 +109,5 @@ summaryLength = "145"
 [Params.promotional]
     description = "由于 openEuler Kernel SIG 官方群已经超过了 200 人, 无法通过扫描二维码加群, 为了方便大家及时加入 openEuler Kernel SIG 技术讨论群, 新建了一个名为 [+]openEuler Kernel 技术交流 的中转群, 该群不讨论技术, 加入微信群后, 管理员会将大家拉入 openEuler Kernel SIG 官方群。请直接扫码加群，或者添加管理员账号直接加入技术群, 备注(SIG 加群-所在公司 or 学生-昵称)"
     groupChat = "/kernel-portal/img/wechat/openEuler_kernel_SIG_wechat_TMP.png"
-    groupAdmin = "/kernel-portal/img/wechat/openEuler_gatieme_wechat.png"
+    groupAdmin = "/kernel-portal/img/wechat/openEuler_kernel_helper_wechat.png"
     groupWP = "/kernel-portal/img/wechat/qrcode.png"

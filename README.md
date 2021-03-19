@@ -2,7 +2,7 @@
 -------
 
 ```cpp
-git clone git@gitee.com:gatieme/kernel-portal.git
+git clone git@gitee.com:openeuler/kernel-portal.git
 git submodule update --init --recursive
 ```
 

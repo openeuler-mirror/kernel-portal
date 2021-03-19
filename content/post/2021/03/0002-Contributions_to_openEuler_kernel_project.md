@@ -28,11 +28,11 @@ widgets: # Enable sidebar widgets in given order per page
 ---
 
 
-openEuler 内核开发跟 linux 主线一样, 采用社区协作的方式, 我们发送补丁、咨询问题都是通过邮件进行交流的, 因此我们进行内核开发的标准流程和主线内核的开发流程是一样的.
+openEuler kernel 开发跟 linux 主线一样, 采用社区协作的方式, 我们发送补丁、咨询问题都是通过邮件进行交流的, 因此我们进行内核开发的标准流程和主线内核的开发流程是一样的.
 
 1.	首先你需要配置好你的 git, 而且要能正常使用 git 发送补丁;
 
-2.	下载 openEuler 内核源代码;
+2.	下载 openEuler kernel 源代码;
 
 3.	提交、验证你的补丁;
 
@@ -68,7 +68,7 @@ openEuler 内核开发跟 linux 主线一样, 采用社区协作的方式, 我�
 ### 1.1 下载 openEuler linux 内核代码
 -------
 
-openEuler 内核开源在 gitee 上面.
+openEuler kernel 开源在 gitee 上面.
 
 ```
 git clone git@gitee.com:openeuler/kernel.git
@@ -77,7 +77,7 @@ git clone git@gitee.com:openeuler/kernel.git
 **强烈建议使用 ssh 协议**, 由于 kernel 仓库较大, 使用 https 协议下载, 可能会下载失败, 特别是当你辛辛苦苦下载一半然后失败的时候, 那种感觉....
 
 
-![clone 内核源代码](/kernel-portal/img/2021/03/0002-0001-clone_kernel.png)
+![clone kernel 源代码](/kernel-portal/img/2021/03/0002-0001-clone_kernel.png)
 
 
 默认会把仓库下载到和仓库同名的目录下.
@@ -216,10 +216,10 @@ git send-email -to zhangsan@163.com ./xxxx.patch
 | 签名 | 描述 |
 |:---:|:----:|
 | Signed-off-by | 这个是我们最常使用的签名戳, 它包含了很多的含义, 表明你是这个补丁的作者或者你对这个修改进行了同步, 正常来说, 一些主线的补丁我们回合后, 要在最后面带上我们自己的签名, 表明这个补丁是你审视了作者的修改之后, 重新发布的. 的需要注意的是, 最后一个 Signed-off-by 必须是提交补丁的开发人员.  |
-| Reviewed-by | openEuler 各个模块的 Commiter/Maintainer 对你的补丁进行 review 完成之后, 就会签上这个戳, 表明他们认可了你的修改, 只有看到了这个戳, Commiter/Maintainer 才有可能将此补丁合入 |
+| Reviewed-by | openEuler 各个模块的 Committer/Maintainer 对你的补丁进行 review 完成之后, 就会签上这个戳, 表明他们认可了你的修改, 只有看到了这个戳, Commiter/Maintainer 才有可能将此补丁合入 |
 | Reported-by | 一般用于别的小伙伴发现的 BUG 或者问题等, 当其他兄弟完成修复后, 出于对上报问题的兄弟工作的认可, 带上这个戳把补丁发出来. 毕竟发现问题也是需要花费时间的, 大家可能解决起来比较棘手的问题, 都可以发出来让大家一起讨论和修复, 修复问题的时候带上上报人的戳, 即是对其辛勤功劳的肯定, 也是一种荣誉和认可. 毕竟只有多多的发现问题, openEuler 才能不断发展和壮大. 所以也希望大家发现问题多发出来讨论, 多上报. 如果你发现的问题被其他兄弟修复之后, 没有带你 Reported-by, 你可可以直接指出, 辛勤的劳动值得获得的认可. |
 | Suggested-by | 表明这个修改思路是这位兄弟提出的, 但是是你实现的. 同样提出解决问题的方法, 也是要付出的, 理所应当获得认可 |
-| Tested-by | 表明这个补丁被这位兄弟测试过了, 没有问题. 一些修复补丁或者特性补丁, 如果你比较感兴趣, 欢迎大家多多测试, 测试完成后, 恢复邮件, 签上这个戳. Commiter/Maintainer 在提交的时候就会把的戳带上 |
+| Tested-by | 表明这个补丁被这位兄弟测试过了, 没有问题. 一些修复补丁或者特性补丁, 如果你比较感兴趣, 欢迎大家多多测试, 测试完成后, 恢复邮件, 签上这个戳. Committer/Maintainer 在提交的时候就会把的戳带上 |
 | Co-developed-by | 协同开发, 表明这个补丁是由多个兄弟共同开发的. 他的身份是等同于作者的, 一般来说 PATCH 邮件的 From 字段在提交之后, 会默认作为 Author, 但是如果你希望表明其他人也参与了开发, 请使用此签名. |
 
 关于**签名**的详细信息, 可以参考内核文档 [Documentation/process/submitting-patches.rst](https://gitee.com/openeuler/kernel/blob/kernel-4.19/Documentation/process/submitting-patches.rst) 或者[主线内核手册](https://www.kernel.org/doc/html/latest/process/submitting-patches.html).
@@ -283,8 +283,8 @@ CVE: NA
 | 参数 | 描述 |
 |:---:|:----:|
 | -s/--signoff | 添加自己的 Signed-off-by 戳, 自己提交的补丁, 不管是不是自己自研的, 都是要带上自己的签名的, 使用 -s 自动在 patch 最后添加自己的签名 |
-| --subject-prefix "PATCH openEuler-1.0-LTS" | 为补丁添加前缀, 我们的补丁必须显式告诉 Commiter/Reviewer/Maintainer 们, 补丁是为哪个版本或者分支提供的 |
-| -N | 将前 N 补丁生成 PATCH 文件, 比如 -65 将生成 65 个 PATCH, 我们可以指定开始生成的位置, 指定 tag/commitid 等都可以 |
+| --subject-prefix "PATCH openEuler-1.0-LTS" | 为补丁添加前缀, 我们的补丁必须显式告诉 Committer/Reviewer/Maintainer 们, 补丁是为哪个版本或者分支提供的 |
+| -N | 将前 N 补丁生成 PATCH 文件, 比如 -65 将生成 65 个 PATCH, 我们可以指定开始生成的位置, 指定 tag/commit id 等都可以 |
 | -o XXXX | 将 PATCH 生成到 XXXX 目录下 |
 
 使用 git format-patch 生成补丁文件
@@ -331,17 +331,17 @@ git format-patch -s --cover-letter --subject-prefix "PATCH v3 openEuler-1.0-LTS"
 ![cover-letter](/kernel-portal/img/2021/03/0002-0008-cover_letter.png)
 
 
-> 注意我们可以指定 commitid 为 patchset 的结束位置
+> 注意我们可以指定 commit id 为 patchset 的结束位置
 > 如果没有指定要生成的 PATCH 结束位置的 COMMIT 号, 则默认使用 HEAD.
 
 
-*	Change Log 信息
+*	changelog 信息
 
-一般软件发布的时候, Change Log 用来说明与上一个版本的差异, 对于内核 PATCH 来, 我们的版本在经历了几次修改之后, 也建议用 Change Log 描述下相比较之前版本的修改点. 这有助于 Commiter 对补丁的修改和逻辑有一个大致的了解.
+一般软件发布的时候, changelog 用来说明与上一个版本的差异, 对于内核 PATCH 来, 我们的版本在经历了几次修改之后, 也建议用 changelog 描述下相比较之前版本的修改点. 这有助于 Committer 对补丁的修改和逻辑有一个大致的了解.
 
-一组 patchset 的时候, 一般我们把 Change Log 写到封面补丁中, 在补丁集描述之后, 就填写 Change Log 信息. 由于这个补丁不会出现在 git log 中, 自然也不用担心 Change Log 出现在版本的 git log 中. 我们以内核主线社区 patchwork 中的 patchset 举例, [参见](https://lore.kernel.org/patchwork/cover/1340764)
+一组 patchset 的时候, 一般我们把 changelog 写到封面补丁中, 在补丁集描述之后, 就填写 changelog 信息. 由于这个补丁不会出现在 git log 中, 自然也不用担心 changelog 出现在版本的 git log 中. 我们以内核主线社区 patchwork 中的 patchset 举例, [参见](https://lore.kernel.org/patchwork/cover/1340764)
 
-对于单个 patch, 如果 Change Log 直接写到 commit message 后面, apply 之后就会体现在 git log 中, 这自然不是我们想要的. 此时 git 为我们提供了一种更简单的方式. 在最后一个 Signed-off-by 之后, git 打印了几个短杠 "---", 在这几个短杠之后, 修改文件列表之前, 我们可以在这里畅所欲言, 而不会体现在 git log 中. 这里也是我们可以填写 Change Log 的地方. 同样以主线 patchwork 中的 patch 为例, [参见](https://lore.kernel.org/patchwork/patch/1328176/)
+对于单个 patch, 如果 changelog 直接写到 commit message 后面, apply 之后就会体现在 git log 中, 这自然不是我们想要的. 此时 git 为我们提供了一种更简单的方式. 在最后一个 Signed-off-by 之后, git 打印了几个短杠 "---", 在这几个短杠之后, 修改文件列表之前, 我们可以在这里畅所欲言, 而不会体现在 git log 中. 这里也是我们可以填写 changelog 的地方. 同样以主线 patchwork 中的 patch 为例, [参见](https://lore.kernel.org/patchwork/patch/1328176/)
 
 #### 2.3.3 checkpatch 检查
 -------
@@ -387,7 +387,7 @@ git format-patch -s --cover-letter --subject-prefix "PATCH v3 openEuler-1.0-LTS"
 git send-email –cc zhangsan@163.com --to kernel@openeuler.org 0001-arm64-fix-compile-error-when-CONFIG_ACPI-is-not-enab.patch --suppress-cc=all
 ```
 
-建议大家发送的邮件都抄送相关 Commiter 一份.
+建议大家发送的邮件都抄送相关 Committer 一份.
 
 ## 3 附录
 -------

@@ -98,7 +98,7 @@
 </div></div>
 		</header>
 
-    <h5 id="wc" style="font-size: 1rem;text-align: center;">2300 Words|Read in about 5 Min|本文总阅读量<span id="busuanzi_value_page_pv"></span>次</h5>
+    <h5 id="wc" style="font-size: 1rem;text-align: center;">2400 Words|Read in about 5 Min|本文总阅读量<span id="busuanzi_value_page_pv"></span>次</h5>
   
     <div class="toc">
         <div class="toc__title"><span id="toc_menu_tip">展开书签</span></div>
@@ -109,7 +109,7 @@
     <li><a href="#2-适用范围">2 适用范围</a></li>
     <li><a href="#3--对补丁的基本要求">3  对补丁的基本要求</a>
       <ul>
-        <li><a href="#31-贡献openeuler社区之前需要签署贡献者协议-cla">3.1 贡献openEuler社区之前需要签署贡献者协议 （CLA)</a></li>
+        <li><a href="#31-贡献-openeuler-社区之前需要签署贡献者协议-cla">3.1 贡献 openEuler 社区之前需要签署贡献者协议 （CLA)</a></li>
         <li><a href="#32-补丁格式要求">3.2 补丁格式要求</a></li>
         <li><a href="#33-补丁的维护与生命周期">3.3 补丁的维护与生命周期</a></li>
       </ul>
@@ -132,7 +132,21 @@
     </script>
   
 <div class="content post__content clearfix">
-			<p>阅读本规范之前，请先了解 <a href="https://gitee.com/openeuler/community/tree/master/sig/Kernel#kernel-%E7%9A%84%E5%88%86%E6%94%AF">openEuler 内核的分支管理</a>。</p>
+			<table>
+<thead>
+<tr>
+<th style="text-align:center">kernel-portal</th>
+<th style="text-align:center">openEuler 公众号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><a href="https://openeuler.gitee.io/kernel-portal/post/2021/03/0001-openeuler_patch_format_specification">openEuler kernel 补丁合入规范</a></td>
+<td style="text-align:center"><a href="https://mp.weixin.qq.com/s/rSH79v7btJfsdivC2mki1w">公众号推文</a></td>
+</tr>
+</tbody>
+</table>
+<p>阅读本规范之前，请先了解 <a href="https://gitee.com/openeuler/community/tree/master/sig/Kernel#kernel-%E7%9A%84%E5%88%86%E6%94%AF">openEuler 内核的分支管理</a>。</p>
 <p>当前版本 v1.2 @ 2021-03-15</p>
 <table>
 <thead>
@@ -170,10 +184,10 @@
 </tr>
 </tbody>
 </table>
-<p>感谢 <a href="https://github.com/ethercflow">张文博</a>, <a href="https://github.com/zhangming-cloud">张明</a> 两位同学对文档的检视. 针对大家的意见进行了修改, 感谢.</p>
+<p>感谢 <a href="https://github.com/ethercflow">张文博</a>, <a href="https://github.com/zhangming-cloud">张明</a> 两位同学对文档的检视. 针对大家的意见进行了修改, 感谢。</p>
 <h2 id="1-目的">1 目的</h2>
 <hr>
-<p>为规范和统一 openEuler 内核补丁的提交流程、方式、格式，方便对补丁/特性的分类、识别、统计、追溯以及移植，特制定openEuler kernel 补丁合入规范（以下简称“本规范”）。</p>
+<p>为规范和统一 openEuler kernel 补丁的提交流程、方式、格式，方便对补丁/特性的分类、识别、统计、追溯以及移植，特制定openEuler kernel 补丁合入规范（以下简称“本规范”）。</p>
 <h2 id="2-适用范围">2 适用范围</h2>
 <hr>
 <p>本规范适用于 openEuler 在开发以及已发布的所有版本的开发过程。</p>
@@ -197,8 +211,8 @@
 <p>维护安全稳定可靠的、性能领先、生态丰富的的稳定内核，方便产业界快速应用</p>
 </li>
 </ul>
-<p>因此，满足这个原则的补丁或特性都可以提交给 openEuler 内核。</p>
-<h3 id="31-贡献openeuler社区之前需要签署贡献者协议-cla">3.1 贡献openEuler社区之前需要签署贡献者协议 （CLA)</h3>
+<p>因此，满足这个原则的补丁或特性都可以提交给 openEuler kernel。</p>
+<h3 id="31-贡献-openeuler-社区之前需要签署贡献者协议-cla">3.1 贡献 openEuler 社区之前需要签署贡献者协议 （CLA)</h3>
 <hr>
 <p><a href="https://openeuler.org/zh/community/contribution/">https://openeuler.org/zh/community/contribution/</a></p>
 <h3 id="32-补丁格式要求">3.2 补丁格式要求</h3>
@@ -210,12 +224,17 @@
 <p>原则4：补丁 Commit Message 应该清晰完整，有利于判断版本是否需要，有利于补丁在多版本间移植</p>
 <p>原则5：补丁有适当的分类标识，便于识别和统计</p>
 <p>原则6：补丁应有标识，能区分是发给哪个版本/分支的补丁</p>
+<blockquote>
+<p>关于内核编码规范，可以参考
+英文版：<a href="https://gitee.com/openeuler/kernel/blob/kernel-4.19/Documentation/process/coding-style.rst"><code>Documentation/process/coding-style.rst</code></a>，
+中文版：<a href="https://gitee.com/openeuler/kernel/blob/kernel-4.19/Documentation/translations/zh_CN/coding-style.rst">Linux 内核代码风格</a>。</p>
+</blockquote>
 <p>【规则】</p>
 <p>规则1：补丁标题需要标识要推送到哪个分支，分支表示正确，才能触发 CI 检查。如</p>
 <p><code>[PATCH OLK-5.10]  表示是向 OLK-5.10 分支推送补丁</code></p>
 <p>规则2：如果补丁需要修改之后再次发送，需要在补丁标题中标注版本，如</p>
 <p><code>[PATCH OLK-5.10 v2]</code></p>
-<p>规则3：补丁需要有来源标识，比如 mainline inclusion, stable inclusion，dist inclusion 等。下表给出分类建议，不在列表中的，可以自行选择一个有辨识度的标识，或者使用 openEuler inclusion.</p>
+<p>规则3：补丁需要有来源标识，比如 mainline inclusion, stable inclusion，dist inclusion 等。下表给出分类建议，不在列表中的，可以自行选择一个有辨识度的标识，或者使用 openEuler inclusion。</p>
 <table>
 <thead>
 <tr>
@@ -235,10 +254,6 @@
 <tr>
 <td>maillist inclusion</td>
 <td>发到社区，但是还没进主线的补丁</td>
-</tr>
-<tr>
-<td>hulk inclusion</td>
-<td>openEuler kernel 团队开发的补丁</td>
 </tr>
 <tr>
 <td>virt inclusion</td>
@@ -266,21 +281,22 @@
 </tr>
 </tbody>
 </table>
-<p>规则4: 补丁应有分类标识，一般分为 bugfix，performance，feature，doc.</p>
-<p>规则5：如果补丁来说上游主线社区，需要指定来自主线哪个版本，如</p>
+<p>规则4: 补丁应有分类标识，一般分为 bugfix，performance，feature，doc。如：</p>
+<p><code>category: bugfix</code></p>
+<p>规则5：如果补丁来自上游主线社区，需要指定来自主线哪个版本，如：</p>
 <p><code>from mainline-5.11</code></p>
-<p>规则6：如果补丁来自上游 stable 分支，需要指定来自 stable 哪个版本，如</p>
+<p>规则6：如果补丁来自上游 stable 分支，需要指定来自 stable 哪个版本，如：</p>
 <p><code>from stable-5.10.18</code></p>
-<p>规则7：如果补丁来自上游社区，主线或 stable 分支，需要指定补丁的 commit id，如</p>
+<p>规则7：如果补丁来自上游社区，主线或 stable 分支，需要指定补丁的 commit id，如：</p>
 <p><code>commit 0becc0ae5b42828785b589f686725ff5bc3b9b25</code></p>
-<p>规则8：每个补丁或补丁集需要指定 bugzilla 链接，用例说明该补丁解决了什么问题，或新增了什么特性。如果是一个特性补丁集，或回合 stable 的补丁，可以使用相同的bugzilla链接标识一组补丁集。如</p>
+<p>规则8：每个补丁或补丁集需要指定 bugzilla 链接，用例说明该补丁解决了什么问题，或新增了什么特性。如果是一个特性补丁集，或回合 stable 的补丁，可以使用相同的bugzilla链接标识一组补丁集。如：</p>
 <p><code>bugzilla: https://bugzilla.openeuler.org/show_bug.cgi?id=6</code></p>
-<p>规则9：补丁需要有分类标识，如 category: bugfix, category: feature 等</p>
-<p>规则10：如果补丁是 CVE 的修复补丁，需要指定 CVE 编号， 如 CVE: CVE: CVE-2020-36158</p>
-<p>规则11：如果补丁是来自内核社区还没进主线的补丁，需要给出补丁或补丁集链接，如：</p>
+<p>规则9：如果补丁是 CVE 的修复补丁，需要指定 CVE 编号， 如：</p>
+<p><code>CVE: CVE-2020-36158</code></p>
+<p>规则10：如果补丁是来自内核社区还没进主线的补丁，需要给出补丁或补丁集链接，如：</p>
 <p><code>Reference: https://lwn.net/Articles/839107/</code></p>
-<p>建议12：回合社区 Bugfix 补丁时，可以在原补丁 commit message 之前，增加额外的描述，一般能更好的帮助其他人理解为什么需要合入该补丁。</p>
-<p>规则13：回合社区补丁时，commit message 中新增的部分，与原始部分，需要有分割线，如</p>
+<p>建议11：回合社区 Bugfix 补丁时，可以在原补丁 commit message 之前，增加额外的描述，一般能更好的帮助其他人理解为什么需要合入该补丁。</p>
+<p>规则12：回合社区补丁时，commit message 中新增的部分，与原始部分，需要有分割线，如：</p>
 <pre><code class="language-mainline" data-lang="mainline">from $mainline-version
 commit $id
 category: $category
@@ -294,7 +310,7 @@ additional changelog
 original changelog
 
 Signed-off-by: $yourname &lt;$yourname@huawei.com&gt;   [M]
-</code></pre><p>规则14: 不论是自己开发的补丁，还是从社区回合的补丁，还是帮团队其他人员转发的补丁，都需要增加自己的签名。下面说明摘自内核补丁提交说明（文档位置：Documentation/process/submitting-patches.rst）。</p>
+</code></pre><p>规则13: 不论是自己开发的补丁，还是从社区回合的补丁，还是帮团队其他人员转发的补丁，都需要增加自己的签名。下面说明摘自内核补丁提交说明（文档位置：Documentation/process/submitting-patches.rst）。</p>
 <pre><code>Sign your work - the Developer’s Certificate of Origin
    As the same of upstream kernel community, you also need to sign your patch.
 
@@ -335,8 +351,8 @@ Signed-off-by: $yourname &lt;$yourname@huawei.com&gt;   [M]
      Signed-off-by: Random J Developer &lt;random@developer.example.org&gt;
 
    using your real name (sorry, no pseudonyms or anonymous contributions.)
-</code></pre><p>规则15: 自己开发的补丁，需要经过 ./scripts/checkpatch.pl 工具检查，不能有 Error 项。</p>
-<p>建议16: 你可以在补丁的 commit message 中标记补丁要回合到的维护分支，如果补丁没有冲突，maintainer 会自动将其合到对应的分支。</p>
+</code></pre><p>规则14: 自己开发的补丁，需要经过 ./scripts/checkpatch.pl 工具检查，不能有 Error 项。</p>
+<p>建议15: 你可以在补丁的 commit message 中标记补丁要回合到的维护分支，如果补丁没有冲突，maintainer 会自动将其合到对应的分支。</p>
 <ul>
 <li>
 <p>例如，下面这一行信息，表示该补丁需要回合到 openEuler-20.03-LTS-SP1，openEuler-20.03-LTS-SP2两个分支中。</p>
@@ -346,7 +362,7 @@ Signed-off-by: $yourname &lt;$yourname@huawei.com&gt;   [M]
 <h3 id="33-补丁的维护与生命周期">3.3 补丁的维护与生命周期</h3>
 <hr>
 <ol>
-<li>少数遇到以下情况，已经合入openEuler 内核的补丁或特性可能会被回退或删除：</li>
+<li>少数遇到以下情况，已经合入 openEuler kernel 的补丁或特性可能会被回退或删除：</li>
 </ol>
 <ul>
 <li>
@@ -364,17 +380,21 @@ Signed-off-by: $yourname &lt;$yourname@huawei.com&gt;   [M]
 <p>内核升级大版本，如从 4.19 升级到 5.10，上游主线没有包含的补丁，需要原补丁开发团队重新分析合入。</p>
 </li>
 <li>
-<p>LTS 维护分支 (openEuler-xx.xx)，通常不直接接受补丁，只从开发主干（OLK-X.XX)回合的补丁。</p>
+<p>LTS 维护分支 (openEuler-xx.xx)，通常不直接接受补丁，只从开发主干（OLK-X.XX）回合补丁。</p>
 </li>
 <li>
-<p>补丁只合入了创新版本，不一定能进入 LTS 版本和主干。并且，如果补丁要合入主干和LTS分支，需要重新适配发送补丁。</p>
+<p>补丁只合入了创新版本，不一定能进入主干分支和 LTS 分支。并且，如果补丁要合入主干分支和 LTS 分支，需要重新适配发送补丁。</p>
 </li>
 </ol>
 <h2 id="4-流程要求">4 流程要求</h2>
 <hr>
 <ol>
-<li>新特性、新驱动、补丁集回合等，需要现在 <a href="https://bugzilla.openeuler.org/enter_bug.cgi">bugzilla</a> 上提交 request，对特性及改动做简单的介绍。</li>
-<li>明显的、少量的 bugfix、独立的 bugfix，可以在 bugzilla 上提交问题之后，描述补丁分析情况或验证情况，直接按前面要求发补丁。</li>
+<li>
+<p>新特性、新驱动、补丁集回合等，需要先在 <a href="https://bugzilla.openeuler.org/enter_bug.cgi">bugzilla</a> 上提交 request，对特性及改动做简单的介绍。</p>
+</li>
+<li>
+<p>明显的、少量的 bugfix、独立的 bugfix，可以在 bugzilla 上提交问题之后，描述补丁分析情况或验证情况，直接按前面要求发补丁。</p>
+</li>
 </ol>
 
 		</div>
@@ -393,7 +413,7 @@ Signed-off-by: $yourname &lt;$yourname@huawei.com&gt;   [M]
 <tbody>
 <tr>
   <td style="text-align:center"><img src="/kernel-portal/img/wechat/openEuler_kernel_SIG_wechat_TMP.png" alt="GROUP_CHAT"></td>
-  <td style="text-align:center"><img src="/kernel-portal/img/wechat/openEuler_gatieme_wechat.png" alt="GROUP_ADMIN"></td>
+  <td style="text-align:center"><img src="/kernel-portal/img/wechat/openEuler_kernel_helper_wechat.png" alt="GROUP_ADMIN"></td>
   <td style="text-align:center"><img src="/kernel-portal/img/wechat/qrcode.png" alt="GROUP_WP"></td>
 </tr>
 </tbody>
